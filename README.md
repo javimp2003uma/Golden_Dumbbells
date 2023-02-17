@@ -4,4 +4,3 @@ Juan Diego Alba Cantero
 Jorge Miguel Castillo Podadera
 Rocio Guzman Arroyo
 Víctor Rueda Guerrero
-Juan se llama Juan
