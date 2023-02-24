@@ -1,9 +1,9 @@
-G2 Software:
+Golden Dumbbells:
 
 - Javier Montes Pérez. javimp2003uma@uma.es
-- Rocío Guzmán Arroyo. rocioguzmanarroyo22@gmail.com
-- Adrián Pradas Gallardo. pradasgallardoadrian@gmail.com
-- Pablo Muñoz Lara. pabloarchi2003@gmail.com
-- Jorge Castillo Podadera. jorgecas200@gmail.com
-- Juan Diego Alba Cantero. juandiegoalbcan@gmail.com
-- Víctor Rueda Guerrero. victor98rg@gmail.com
+- Rocío Guzmán Arroyo. rocioguzman@uma.es
+- Adrián Pradas Gallardo. adrianpradas@uma.es
+- Pablo Muñoz Lara. pablomunoz@uma.es
+- Jorge Castillo Podadera. jorgecastillopodadera@uma.es
+- Juan Diego Alba Cantero. juandiegoalbacantero@uma.es
+- Víctor Rueda Guerrero. victor2rg@uma.es
