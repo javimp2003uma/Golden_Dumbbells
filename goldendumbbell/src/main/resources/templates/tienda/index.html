@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda</title>
+</head>
+<body>
+    <h1>Tienda de productos</h1>
+    <table>
+        <thead>
+        <tr><td>Nombre del producto </td><td>Cantidad </td><td>Precio</td></tr>
+        </thead>
+        <tbody>
+        <tr th:each="p :${tiendas}">
+            <td th:text="${p.nombre}"></td>
+            <td th:text="${p.cantidad}"></td>
+            <td th:text="${p.precio}"></td>
+        </tr>
+        </tbody>
+
+
+    </table>
+
+</body>
+</html>
