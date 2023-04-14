@@ -14,7 +14,10 @@ public class Ejercicio {
     private Integer id;
     private String nombre;
     private int repeticiones;
+
+    private int series;
     private double peso;
+
 
     public Ejercicio(){
 

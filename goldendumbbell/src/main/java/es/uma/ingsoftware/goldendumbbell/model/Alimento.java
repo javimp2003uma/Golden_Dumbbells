@@ -15,6 +15,8 @@ public class Alimento {
     private Integer id;
     private String name;
     private int gramos;
+    private int N_Dieta;
+    private String comida;
 
     public Alimento(){
 
