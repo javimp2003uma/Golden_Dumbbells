@@ -20,7 +20,7 @@ public class Usuario {
     private String contraseña;
     private double peso;
     private int altura; //Centimetros
-    //rol r;
+    String rol;
     private String correo;
     private int telefono;
     private Date nacimiento;
