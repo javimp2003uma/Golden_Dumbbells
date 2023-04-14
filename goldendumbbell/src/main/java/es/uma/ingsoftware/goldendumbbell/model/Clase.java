@@ -17,6 +17,7 @@ public class Clase {
     private Integer id;
     private String name;
     private Date hora;
+    private int numUsuarios;
     //private List<Usuario> usuarios;
 
     public String getName() {
