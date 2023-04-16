@@ -10,10 +10,10 @@
         <tr><td>Nombre del producto </td><td>Cantidad </td><td>Precio</td></tr>
         </thead>
         <tbody>
-        <tr th:each="p :${tiendas}">
-            <td th:text="${p.nombre}"></td>
-            <td th:text="${p.cantidad}"></td>
-            <td th:text="${p.precio}"></td>
+        <tr each="p :${rset}">
+            <td text="${p.nombre}"></td>
+            <td text="${p.cantidad}"></td>
+            <td text="${p.precio}"></td>
         </tr>
         </tbody>
 

@@ -4,8 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 @Entity
@@ -15,8 +13,6 @@ public class Alimento {
     private Integer id;
     private String name;
     private int gramos;
-    private int N_Dieta;
-    private String comida;
 
     public Alimento(){
 

@@ -4,9 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,7 +15,6 @@ public class Clase {
     private Integer id;
     private String name;
     private Date hora;
-    private int numUsuarios;
     //private List<Usuario> usuarios;
 
     public String getName() {

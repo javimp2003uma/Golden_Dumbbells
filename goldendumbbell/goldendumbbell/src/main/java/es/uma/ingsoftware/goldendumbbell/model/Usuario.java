@@ -4,7 +4,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 
@@ -20,7 +19,7 @@ public class Usuario {
     private String contraseña;
     private double peso;
     private int altura; //Centimetros
-    String rol;
+    //rol r;
     private String correo;
     private int telefono;
     private Date nacimiento;

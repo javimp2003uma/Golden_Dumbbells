@@ -10,6 +10,4 @@ public class GoldenDumbbellApplication {
 		SpringApplication.run(GoldenDumbbellApplication.class, args);
 	}
 
-
-	//hola adri
 }
