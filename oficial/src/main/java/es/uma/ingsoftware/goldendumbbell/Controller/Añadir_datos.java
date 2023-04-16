@@ -7,7 +7,7 @@ public class Añadir_datos {
 
     public static void main(String args[]) throws SQLException {
         int id = 14,cantidad = 1,precio = 30;
-        String nombre = "Whey proteine";
+        String nombre = "Whey protein";
         String tabla = "PRODUCTO", consulta;
 
         /* Registro del controlador */
