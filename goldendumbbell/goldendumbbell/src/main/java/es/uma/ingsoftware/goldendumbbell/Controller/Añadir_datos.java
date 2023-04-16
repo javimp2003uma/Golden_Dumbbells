@@ -6,8 +6,8 @@ public class Añadir_datos {
     private static Connection con;
 
     public static void main(String args[]) throws SQLException {
-        int id = 5,cantidad = 1,precio = 25;
-        String nombre = "Queratina";
+        int id = 14,cantidad = 1,precio = 30;
+        String nombre = "Whey proteine";
         String tabla = "PRODUCTO", consulta;
 
         /* Registro del controlador */
