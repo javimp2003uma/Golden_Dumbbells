@@ -1,8 +1,7 @@
 package es.uma.ingsoftware.goldendumbbell.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.Objects;
@@ -10,9 +9,10 @@ import java.util.Objects;
 public class Noticia {
 
     @Id
-    @GeneratedValue
     private Integer id;
     private String titulo;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fechadpublicacion;
     private String cuerpo;
     public Noticia(){

@@ -11,9 +11,8 @@ import java.util.Objects;
 public class Clase {
 
     @Id
-    @GeneratedValue
     private Integer id;
-    private String name;
+    private String nombre;
     private String hora;
     private Integer n_usuario;
 
@@ -26,7 +25,7 @@ public class Clase {
     }
 
     public String getName() {
-        return name;
+        return nombre;
     }
 
     public String getHora() {
@@ -38,7 +37,7 @@ public class Clase {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.nombre = name;
     }
 
     public Integer getId() {
@@ -53,23 +52,24 @@ public class Clase {
 
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Clase clase = (Clase) o;
-        return Objects.equals(name, clase.name) && Objects.equals(hora, clase.hora);
+        return Objects.equals(nombre, clase.nombre) && Objects.equals(hora, clase.hora);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, hora);
+        return Objects.hash(nombre, hora);
     }
 
     @Override
     public String toString() {
         return "Clase{" +
-                ", Name='" + name + '\'' +
+                ", Name='" + nombre + '\'' +
                 ",Hora=" + hora +
                 '}';
     }

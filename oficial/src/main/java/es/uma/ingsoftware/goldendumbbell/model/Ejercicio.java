@@ -10,7 +10,6 @@ import java.util.Objects;
 public class Ejercicio {
 
     @Id
-    @GeneratedValue
     private Integer id;
     private String nombre;
     private double peso;

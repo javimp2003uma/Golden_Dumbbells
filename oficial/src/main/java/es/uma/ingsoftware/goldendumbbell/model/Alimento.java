@@ -3,13 +3,12 @@ package es.uma.ingsoftware.goldendumbbell.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-
 import java.util.Objects;
 
 @Entity
 public class Alimento {
+
     @Id
-    @GeneratedValue
     private Integer id;
     private String name;
     private Integer gramos;
@@ -52,13 +51,18 @@ public class Alimento {
         this.name = name;
     }
 
-    public Integer getGramos() {
+    public Integer  getGramos() {
         return gramos;
+    }
+
+    public void setGramos(int gramos) {
+        this.gramos = gramos;
     }
 
     public void setGramos(Integer gramos) {
         this.gramos = gramos;
     }
+
 
     @Override
     public boolean equals(Object o) {

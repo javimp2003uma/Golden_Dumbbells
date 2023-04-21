@@ -1,7 +1,6 @@
 package es.uma.ingsoftware.goldendumbbell.model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.Objects;
@@ -13,10 +12,11 @@ public class Usuario {
     //Pensar un toString
     //Que comparamos en el hash code
     @Id
-    @GeneratedValue
     private Integer id; //es para la base de datos es importante
-    private String nombreUsuario;
-    private String contraseña;
+    private String nombreusuario;
+    private String contrasena;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date nacimiento;
     private double peso;
     private Integer altura; //Centimetros
@@ -38,19 +38,19 @@ public class Usuario {
     }
 
     public String getNombreUsuario() {
-        return nombreUsuario;
+        return nombreusuario;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setNombreUsuario(String nombreusuario) {
+        this.nombreusuario = nombreusuario;
     }
 
     public String getContraseña() {
-        return contraseña;
+        return contrasena;
     }
 
     public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+        this.contrasena = contraseña;
     }
 
     public double getPeso() {
@@ -117,7 +117,7 @@ public class Usuario {
     public String toString() {
         return "Usuario{" +
                 "Identificador=" + id +
-                ", Nombre completo='" + nombreUsuario + '\'' +
+                ", Nombre completo='" + nombreusuario + '\'' +
                 ", Correo='" + correo + '\'' +
                 '}';
     }

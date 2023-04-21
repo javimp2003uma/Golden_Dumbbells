@@ -2,9 +2,11 @@ package es.uma.ingsoftware.goldendumbbell.service;
 import es.uma.ingsoftware.goldendumbbell.model.Ejercicio;
 import es.uma.ingsoftware.goldendumbbell.repository.EjercicioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class EjercicioService {
 
     @Autowired

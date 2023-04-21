@@ -10,9 +10,8 @@ import java.util.Objects;
 @Entity
 public class Producto {
     @Id
-    @GeneratedValue
     private Integer id;
-    private String nombreProducto;
+    private String nombreproducto;
     private Integer cantidad;
     private double precio;
 
@@ -29,11 +28,11 @@ public class Producto {
     }
 
     public String getNombreProducto() {
-        return nombreProducto;
+        return nombreproducto;
     }
 
-    public void setNombreProducto(String nombreProducto) {
-        this.nombreProducto = nombreProducto;
+    public void setNombreProducto(String nombreproducto) {
+        this.nombreproducto = nombreproducto;
     }
 
     public Integer  getCantidad() {
@@ -67,7 +66,7 @@ public class Producto {
     @Override
     public String toString() {
         return "Producto{" +
-                "Nombre='" + nombreProducto + '\'' +
+                "Nombre='" + nombreproducto + '\'' +
                 ", Cantidad=" + cantidad +
                 ", Precio=" + precio +
                 "€ }";
