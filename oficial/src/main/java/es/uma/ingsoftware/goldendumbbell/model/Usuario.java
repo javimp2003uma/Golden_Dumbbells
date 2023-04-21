@@ -19,16 +19,21 @@ public class Usuario {
     private String contraseña;
     private double peso;
     private int altura; //Centimetros
-    //rol r;
+   private String rol;
     private String correo;
     private int telefono;
     private Date nacimiento;
-   // private List<Producto> carrito;
-
-    //para la apliacion wed creamos un contructor vacio
 
     public Usuario(){
 
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     public String getNombreUsuario() {
@@ -91,16 +96,6 @@ public class Usuario {
         this.id = id;
     }
 
-    /* public List<Producto> getCarrito() {
-            return carrito;
-        }
-
-        public void addPrCarrito(Producto p) {
-           carrito.add(p);
-        }
-
-
-       */
     public int getId() {
         return id;
     }

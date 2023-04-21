@@ -15,7 +15,15 @@ public class Clase {
     private Integer id;
     private String name;
     private Date hora;
-    //private List<Usuario> usuarios;
+    private int n_usuario;
+
+    public int getN_usuario() {
+        return n_usuario;
+    }
+
+    public void setN_usuario(int n_usuario) {
+        this.n_usuario = n_usuario;
+    }
 
     public String getName() {
         return name;

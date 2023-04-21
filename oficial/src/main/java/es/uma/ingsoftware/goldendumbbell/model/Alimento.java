@@ -13,9 +13,27 @@ public class Alimento {
     private Integer id;
     private String name;
     private int gramos;
+    private int n_dieta;
+    private String comida;
 
     public Alimento(){
 
+    }
+
+    public int getN_dieta() {
+        return n_dieta;
+    }
+
+    public void setN_dieta(int n_dieta) {
+        this.n_dieta = n_dieta;
+    }
+
+    public String getComida() {
+        return comida;
+    }
+
+    public void setComida(String comida) {
+        this.comida = comida;
     }
 
     public void setId(Integer id) {

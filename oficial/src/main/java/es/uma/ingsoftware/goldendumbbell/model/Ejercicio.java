@@ -15,9 +15,22 @@ public class Ejercicio {
     private String nombre;
     private int repeticiones;
     private double peso;
+    private int n_rutina;
 
     public Ejercicio(){
 
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public int getN_rutina() {
+        return n_rutina;
+    }
+
+    public void setN_rutina(int n_rutina) {
+        this.n_rutina = n_rutina;
     }
 
     public int getId() {

@@ -13,7 +13,7 @@ public class Noticia {
     @GeneratedValue
     private Integer id;
     private String titulo;
-    private String info;
+    private String cuerpo;
     private Date fechadpublicacion;
     public Noticia(){
 
@@ -28,11 +28,11 @@ public class Noticia {
     }
 
     public String getInfo() {
-        return info;
+        return cuerpo;
     }
 
     public void setInfo(String info) {
-        this.info = info;
+        this.cuerpo = cuerpo;
     }
 
     public Date getFechadpublicacion() {
