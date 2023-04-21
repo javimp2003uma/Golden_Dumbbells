@@ -43,7 +43,7 @@ public class Noticia {
         this.fechadpublicacion = fechadpublicacion;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

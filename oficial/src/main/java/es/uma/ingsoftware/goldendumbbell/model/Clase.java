@@ -41,12 +41,8 @@ public class Clase {
         this.name = name;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setId(Integer id) {

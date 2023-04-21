@@ -40,7 +40,7 @@ public class Alimento {
         this.id = id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

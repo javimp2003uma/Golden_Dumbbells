@@ -33,7 +33,7 @@ public class Ejercicio {
         this.n_rutina = n_rutina;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
