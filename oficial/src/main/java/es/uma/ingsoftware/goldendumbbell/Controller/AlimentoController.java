@@ -18,43 +18,43 @@ public class AlimentoController {
     @Autowired
     AlimentoService alimentoService;
 
-    @RequestMapping("/tienda")
+    @RequestMapping("/dieta")
     public String listadoEditorials(Model model) {
         List<Alimento> alimento = alimentoService.getAll();
 
         model.addAttribute("listaAlimentos", alimento);
 
-        return "tienda/index";
+        return "dieta/index";
     }
 
-    @RequestMapping("/tienda/add")
+    @RequestMapping("/dieta/add")
     public String addEditorial(Model model) {
         model.addAttribute("alimento", new Alimento());
-        return "tienda/add";
+        return "dieta/add";
     }
 
-    @PostMapping("/tienda/save")
+    @PostMapping("/dieta/save")
     public String saveEditorial(Alimento e) {
         alimentoService.save(e);
-        return "redirect:/tienda";
+        return "redirect:/dieta";
     }
 
-    @RequestMapping("/tienda/edit/{id}")
+    @RequestMapping("/dieta/edit/{id}")
     public String editEditorial(@PathVariable("id") Integer id, Model model) {
-        model.addAttribute("aliemnto", alimentoService.getById(id));
-        return "tienda/add";
+        model.addAttribute("alimento", alimentoService.getById(id));
+        return "dieta/add";
     }
 
-    @RequestMapping("/editoriales/view/{id}")
+    @RequestMapping("/dieta/view/{id}")
     public String viewEditorial(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("alimento", alimentoService.getById(id));
-        return "editoriales/view";
+        return "dieta/view";
     }
 
-    @RequestMapping("/editoriales/delete/{id}")
+    @RequestMapping("/dieta/delete/{id}")
     public String deleteEditorial(@PathVariable("id") Integer id) {
         alimentoService.delete(id);
-        return "redirect:/editoriales";
+        return "redirect:/dieta";
     }
 
 }
