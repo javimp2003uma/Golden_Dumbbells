@@ -11,9 +11,9 @@
         </thead>
         <tbody>
         <tr each="p :${rset}">
-            <td text="${p.nombre}"></td>
-            <td text="${p.cantidad}"></td>
-            <td text="${p.precio}"></td>
+            <td th:text="${p.nombre}"></td>
+            <td th:text="${p.cantidad}"></td>
+            <td th:text="${p.precio}"></td>
         </tr>
         </tbody>
 
