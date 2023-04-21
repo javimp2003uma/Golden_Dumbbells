@@ -13,8 +13,8 @@ public class Noticia {
     @GeneratedValue
     private Integer id;
     private String titulo;
-    private String cuerpo;
     private Date fechadpublicacion;
+    private String cuerpo;
     public Noticia(){
 
     }
@@ -47,7 +47,7 @@ public class Noticia {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

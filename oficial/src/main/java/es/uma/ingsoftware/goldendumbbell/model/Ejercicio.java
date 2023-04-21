@@ -13,9 +13,9 @@ public class Ejercicio {
     @GeneratedValue
     private Integer id;
     private String nombre;
-    private int repeticiones;
     private double peso;
-    private int n_rutina;
+    private Integer repeticiones;
+    private Integer n_rutina;
 
     public Ejercicio(){
 
@@ -25,20 +25,16 @@ public class Ejercicio {
         this.id = id;
     }
 
-    public int getN_rutina() {
+    public Integer getN_rutina() {
         return n_rutina;
     }
 
-    public void setN_rutina(int n_rutina) {
+    public void setN_rutina(Integer n_rutina) {
         this.n_rutina = n_rutina;
     }
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -49,11 +45,11 @@ public class Ejercicio {
         this.nombre = nombre;
     }
 
-    public int getRepeticiones() {
+    public Integer getRepeticiones() {
         return repeticiones;
     }
 
-    public void setRepeticiones(int repeticiones) {
+    public void setRepeticiones(Integer repeticiones) {
         this.repeticiones = repeticiones;
     }
 

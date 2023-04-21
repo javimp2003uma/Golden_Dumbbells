@@ -13,7 +13,7 @@ public class Producto {
     @GeneratedValue
     private Integer id;
     private String nombreProducto;
-    private int cantidad;
+    private Integer cantidad;
     private double precio;
 
     public Producto() {
@@ -36,11 +36,11 @@ public class Producto {
         this.nombreProducto = nombreProducto;
     }
 
-    public int getCantidad() {
+    public Integer  getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }
 

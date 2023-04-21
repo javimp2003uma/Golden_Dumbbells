@@ -17,12 +17,13 @@ public class Usuario {
     private Integer id; //es para la base de datos es importante
     private String nombreUsuario;
     private String contraseña;
-    private double peso;
-    private int altura; //Centimetros
-   private String rol;
-    private String correo;
-    private int telefono;
     private Date nacimiento;
+    private double peso;
+    private Integer altura; //Centimetros
+    private String correo;
+    private Integer telefono;
+    private String rol;
+
 
     public Usuario(){
 
@@ -60,11 +61,11 @@ public class Usuario {
         this.peso = peso;
     }
 
-    public int getAltura() {
+    public Integer getAltura() {
         return altura;
     }
 
-    public void setAltura(int altura) {
+    public void setAltura(Integer altura) {
         this.altura = altura;
     }
 
@@ -76,11 +77,11 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public int getTelefono() {
+    public Integer getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(Integer telefono) {
         this.telefono = telefono;
     }
 
@@ -98,10 +99,6 @@ public class Usuario {
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     @Override
