@@ -24,7 +24,7 @@ public class Coger_datos {
            Un objeto ResultSet es una tabla de datos que representa un conjunto
            de resultados de la base de datos, el cual mantiene un cursor que
            apunta a la fila actual de los datos. */
-        String consulta = "SELECT * FROM PRODUCTO";
+        String consulta = "SELECT * FROM USUARIO";
         System.out.println("Se va a ejecutar la consulta: " + consulta);
         System.out.println("\nIniciando transacción...");
         ResultSet rset = stmt.executeQuery(consulta);
