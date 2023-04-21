@@ -19,7 +19,7 @@ public class AlimentoController {
     AlimentoService alimentoService;
 
     @RequestMapping("/dieta")
-    public String listadoEditorials(Model model) {
+    public String listadoAlimentos(Model model) {
         List<Alimento> alimento = alimentoService.getAll();
 
         model.addAttribute("listaAlimentos", alimento);
@@ -28,31 +28,31 @@ public class AlimentoController {
     }
 
     @RequestMapping("/dieta/add")
-    public String addEditorial(Model model) {
+    public String addAlimento(Model model) {
         model.addAttribute("alimento", new Alimento());
         return "dieta/add";
     }
 
     @PostMapping("/dieta/save")
-    public String saveEditorial(Alimento e) {
+    public String saveAlimento(Alimento e) {
         alimentoService.save(e);
         return "redirect:/dieta";
     }
 
     @RequestMapping("/dieta/edit/{id}")
-    public String editEditorial(@PathVariable("id") Integer id, Model model) {
+    public String editAlimento(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("alimento", alimentoService.getById(id));
         return "dieta/add";
     }
 
     @RequestMapping("/dieta/view/{id}")
-    public String viewEditorial(@PathVariable("id") Integer id, Model model) {
+    public String viewAlimento(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("alimento", alimentoService.getById(id));
         return "dieta/view";
     }
 
     @RequestMapping("/dieta/delete/{id}")
-    public String deleteEditorial(@PathVariable("id") Integer id) {
+    public String deleteAlimento(@PathVariable("id") Integer id) {
         alimentoService.delete(id);
         return "redirect:/dieta";
     }
