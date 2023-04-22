@@ -3,6 +3,7 @@ package es.uma.ingsoftware.goldendumbbell.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 import java.util.Objects;
 
@@ -15,6 +16,9 @@ public class Producto {
     private String nombreproducto;
     private Integer cantidad;
     private double precio;
+
+    @OneToOne
+    public Carrito car;
 
     public Producto() {
 

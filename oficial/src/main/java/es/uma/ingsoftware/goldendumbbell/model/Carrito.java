@@ -1,9 +1,8 @@
 package es.uma.ingsoftware.goldendumbbell.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 
@@ -16,7 +15,11 @@ public class Carrito {
     private Integer cantidad;
     private double precio;
 
+    @OneToOne(mappedBy = "carrito")
+    public Usuario usuario;
 
+    @OneToMany(mappedBy = "car")
+    List<Producto> productos;
 
     public Carrito() {
 
