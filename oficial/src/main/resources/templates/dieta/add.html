@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Listado de editoriales</title>
 </head>
 <body>
-
+<div switch="${tienda.id}">
+    <h1 case="null">Nuevo producto</h1>
+    <h1 case="*">Editando producto</h1>
+</div>
+<form action="@{/tienda/save}" method="post" object="${alimento}">
+    <input type="hidden" id="id" field="*{id}">
+    <div>
+        <label for="name">Nombre</label>
+        <input type="text" id="name" field="*{name}">
+    </div>
+    <div>
+        <label for="gramos">Gramos</label>
+        <input type="number" id="gramos" field="*{gramos}">
+    </div>
+    <div>
+        <label for="n_dieta">Dieta</label>
+        <input type="number" id="n_dieta" field="*{n_dieta}">
+    </div>
+    <div>
+        <label for="comida">Comida</label>
+        <input type="text" id="comida" field="*{comida}">
+    </div>
+    <div>
+        <input type="submit" value="Enviar">
+    </div>
+</form>
 </body>
 </html>

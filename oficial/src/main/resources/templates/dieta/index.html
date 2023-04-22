@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Listado de productos</title>
 </head>
 <body>
-
+<h1>Tienda</h1>
+<a href="@{/tienda/add}">Crear nuevo producto</a>
+<table>
+    <thead>
+    <tr><td>ID</td><td>Nombre</td><td>Gramos</td><td>Dieta</td><td>Comida</td><td></td></tr>
+    </thead>
+    <tbody>
+    <tr each="e : ${listaAlimentos}">
+        <td number="${e.id}"></td>
+        <td text="${e.name}"></td>
+        <td number="${e.gramos}"></td>
+        <td number="${e.n_dieta}"></td>
+        <td text="${e.comida}"></td>
+        <td><a href="@{/tienda/view/{id}(id=${e.id})}">Ver</a> <a href="@{/tienda/edit/{id}(id=${e.id})}">Editar</a> <a href="@{/tienda/delete/{id}(id=${e.id})}">Borrar</a></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
