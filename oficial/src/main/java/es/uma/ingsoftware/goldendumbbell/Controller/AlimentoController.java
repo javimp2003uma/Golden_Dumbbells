@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -21,8 +22,16 @@ public class AlimentoController {
 
     @RequestMapping("/dieta")
     public String listadoAlimentos(Model model) {
-        List<Alimento> alimento = alimentoService.getAll();
+        List<Alimento> alimento = new ArrayList<>();
 
+        Alimento a = new Alimento();
+
+        a.setName("Arroz");
+        a.setGramos(1);
+        a.setId(1);
+        a.setN_dieta(1);
+        a.setComida("Almuerzo");
+        alimento.add(a);
         model.addAttribute("listaAlimentos", alimento);
 
         return "dieta/index";
