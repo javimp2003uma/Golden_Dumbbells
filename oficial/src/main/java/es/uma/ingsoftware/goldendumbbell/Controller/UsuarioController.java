@@ -41,13 +41,13 @@ public class UsuarioController {
         model.addAttribute("alimento", usuarioService.getById(id));
         return "usuario/add";
     }
-
+/*
     @RequestMapping("/usuario/view/{id}")
     public String viewUsuario(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("alimento", usuarioService.getById(id));
         return "usuario/view";
     }
-
+*/
     @RequestMapping("/usuario/delete/{id}")
     public String deleteUsuario(@PathVariable("id") Integer id) {
         usuarioService.delete(id);

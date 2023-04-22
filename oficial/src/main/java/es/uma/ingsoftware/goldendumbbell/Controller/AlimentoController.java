@@ -46,12 +46,12 @@ public class AlimentoController {
         return "dieta/add";
     }
 
-    @RequestMapping("/dieta/view/{id}")
+    /*@RequestMapping("/dieta/view/{id}")
     public String viewAlimento(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("alimento", alimentoService.getById(id));
         return "dieta/view";
     }
-
+*/
     @RequestMapping("/dieta/delete/{id}")
     public String deleteAlimento(@PathVariable("id") Integer id) {
         alimentoService.delete(id);

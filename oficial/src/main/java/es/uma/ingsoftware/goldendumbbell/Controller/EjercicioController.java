@@ -45,12 +45,13 @@ public class EjercicioController {
         model.addAttribute("alimento", ejercicioService.getById(id));
         return "rutina/add";
     }
-
+/*
     @RequestMapping("/dieta/view/{id}")
     public String vieweEjercicio(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("alimento", ejercicioService.getById(id));
         return "rutina/view";
     }
+    */
 
     @RequestMapping("/rutina/delete/{id}")
     public String deleteEjercicio(@PathVariable("id") Integer id) {

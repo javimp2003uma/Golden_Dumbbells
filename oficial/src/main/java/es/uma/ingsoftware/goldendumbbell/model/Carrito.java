@@ -8,7 +8,7 @@ import java.util.Objects;
 
 
 @Entity
-public class Producto {
+public class Carrito {
     @Id
     @GeneratedValue
     private Integer id;
@@ -16,7 +16,9 @@ public class Producto {
     private Integer cantidad;
     private double precio;
 
-    public Producto() {
+
+
+    public Carrito() {
 
     }
 

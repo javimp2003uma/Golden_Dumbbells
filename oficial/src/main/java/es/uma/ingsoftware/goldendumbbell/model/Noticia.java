@@ -9,6 +9,7 @@ import java.util.Objects;
 public class Noticia {
 
     @Id
+    @GeneratedValue
     private Integer id;
     private String titulo;
     @Temporal(TemporalType.DATE)

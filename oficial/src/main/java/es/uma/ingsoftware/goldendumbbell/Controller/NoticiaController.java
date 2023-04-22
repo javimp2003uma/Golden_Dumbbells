@@ -42,13 +42,13 @@ public class NoticiaController {
         model.addAttribute("noticia", noticiaService.getById(id));
         return "noticia/add";
     }
-
+/*
     @RequestMapping("/noticia/view/{id}")
     public String viewNoticia(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("noticia", noticiaService.getById(id));
         return "noticia/view";
     }
-
+*/
     @RequestMapping("/noticia/delete/{id}")
     public String deleteNoticia(@PathVariable("id") Integer id) {
         noticiaService.delete(id);

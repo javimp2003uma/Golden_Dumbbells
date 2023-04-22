@@ -42,13 +42,13 @@ public class ProductoController {
         model.addAttribute("producto", productoService.getById(id));
         return "tienda/add";
     }
-
+    /*
     @RequestMapping("/tienda/view/{id}")
     public String viewProducto(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("producto", productoService.getById(id));
         return "tienda/view";
     }
-
+*/
     @RequestMapping("/tienda/delete/{id}")
     public String deleteProducto(@PathVariable("id") Integer id) {
         productoService.delete(id);

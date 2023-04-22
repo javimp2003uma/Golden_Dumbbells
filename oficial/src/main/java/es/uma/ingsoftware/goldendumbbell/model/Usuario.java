@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -12,6 +13,7 @@ public class Usuario {
     //Pensar un toString
     //Que comparamos en el hash code
     @Id
+    @GeneratedValue
     private Integer id; //es para la base de datos es importante
     private String nombreusuario;
     private String contrasena;
@@ -24,6 +26,9 @@ public class Usuario {
     private Integer telefono;
     private String rol;
 
+
+    @ManyToMany(mappedBy = "asistentes")
+    List<Clase> clases;
 
     public Usuario(){
 

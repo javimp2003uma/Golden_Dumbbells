@@ -3,18 +3,24 @@ package es.uma.ingsoftware.goldendumbbell.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
-import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class Clase {
 
     @Id
+    @GeneratedValue
     private Integer id;
     private String nombre;
     private String hora;
     private Integer n_usuario;
+
+    @ManyToMany
+    List<Usuario> asistentes;
+    
 
     public Integer getN_usuario() {
         return n_usuario;
@@ -51,6 +57,7 @@ public class Clase {
     public Clase() {
 
     }
+
 
 
     @Override

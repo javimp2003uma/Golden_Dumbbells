@@ -1,31 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Listado de editoriales</title>
 </head>
 <body>
-<div switch="${tienda.id}">
-    <h1 case="null">Nuevo producto</h1>
-    <h1 case="*">Editando producto</h1>
-</div>
-<form action="@{/tienda/save}" method="post" object="${alimento}">
-    <input type="hidden" id="id" field="*{id}">
+<h1>Dietas</h1>
+
+<form th:action="@{/dieta/save}" method="post" th:object="${alimento}">
+    <input th:type="hidden" id="id" th:field="*{id}">
     <div>
         <label for="name">Nombre</label>
-        <input type="text" id="name" field="*{name}">
+        <input th:type="text" id="name" th:field="*{name}">
     </div>
     <div>
         <label for="gramos">Gramos</label>
-        <input type="number" id="gramos" field="*{gramos}">
+        <input th:type="number" id="gramos" th:field="*{gramos}">
     </div>
     <div>
         <label for="n_dieta">Dieta</label>
-        <input type="number" id="n_dieta" field="*{n_dieta}">
+        <input th:type="number" id="n_dieta" th:field="*{n_dieta}">
     </div>
     <div>
         <label for="comida">Comida</label>
-        <input type="text" id="comida" field="*{comida}">
+        <input th:type="text" id="comida" field="*{comida}">
     </div>
     <div>
         <input type="submit" value="Enviar">

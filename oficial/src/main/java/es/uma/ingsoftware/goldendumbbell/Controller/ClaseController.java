@@ -43,12 +43,12 @@ public class ClaseController {
             return "horario/add";
         }
 
-        @RequestMapping("/horario/view/{id}")
+      /*  @RequestMapping("/horario/view/{id}")
         public String viewClase(@PathVariable("id") Integer id, Model model) {
             model.addAttribute("clase", claseService.getById(id));
             return "horario/view";
         }
-
+*/
         @RequestMapping("/horario/delete/{id}")
         public String deleteClase(@PathVariable("id") Integer id) {
             claseService.delete(id);

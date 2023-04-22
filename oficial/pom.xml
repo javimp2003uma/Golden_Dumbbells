@@ -14,7 +14,7 @@
 	<name>Golden Dumbbell</name>
 	<description>¿A que esperas para dar el paso??</description>
 	<properties>
-		<java.version>19</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
