@@ -13,10 +13,10 @@
     </thead>
     <tbody>
     <tr th:each="e : ${listaAlimentos}">
-        <td th:number="${e.id}"></td>
+        <td th:text="${e.id}"></td>
         <td th:text="${e.name}"></td>
-        <td th:number="${e.gramos}"></td>
-        <td th:number="${e.n_dieta}"></td>
+        <td th:text="${e.gramos}"></td>
+        <td th:text="${e.n_dieta}"></td>
         <td th:text="${e.comida}"></td>
         <td><a th:href="@{/dieta/view/{id}(id=${e.id})}">Ver</a> <a th:href="@{/dieta/edit/{id}(id=${e.id})}">Editar</a> <a th:href="@{/dieta/delete/{id}(id=${e.id})}">Borrar</a></td>
     </tr>
