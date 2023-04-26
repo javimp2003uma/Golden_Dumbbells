@@ -20,6 +20,9 @@
         <td th:text="${e.comida}"></td>
         <td><a th:href="@{/dieta/view/{id}(id=${e.id})}">Ver</a> <a th:href="@{/dieta/edit/{id}(id=${e.id})}">Editar</a> <a th:href="@{/dieta/delete/{id}(id=${e.id})}">Borrar</a></td>
     </tr>
+    <tr th:each="e : ${listaNombreAlimentos}">
+        <td th:text="${e}"></td>
+    </tr>
     </tbody>
 </table>
 </body>

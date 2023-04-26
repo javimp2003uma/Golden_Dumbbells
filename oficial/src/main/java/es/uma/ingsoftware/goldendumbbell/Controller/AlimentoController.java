@@ -22,9 +22,18 @@ public class AlimentoController {
 
     @RequestMapping("/dieta")
     public String listadoAlimentos(Model model) {
-        List<Alimento> alimento = alimentoService.getAll();
+        List<Alimento> alimentos = alimentoService.getAll();
 
-        model.addAttribute("listaAlimentos", alimento);
+        model.addAttribute("listaAlimentos", alimentos);
+
+        return "dieta/index";
+    }
+
+    @RequestMapping("/dieta")
+    public String listadoAlimentosOnlyNombres (Model model) {
+        List<String> nombres = alimentoService.getAllNombres();
+
+        model.addAttribute("listaNombreAlimentos",nombres);
 
         return "dieta/index";
     }
