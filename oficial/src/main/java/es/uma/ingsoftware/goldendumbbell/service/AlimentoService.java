@@ -27,6 +27,15 @@ public class AlimentoService {
         return nombres;
     }
 
+    public double getMediaGramos () {
+        List<Alimento> aux = alimentoRepository.findAll();
+        double sum = 0;
+        for (Alimento a : aux) {
+            sum += a.getGramos();
+        }
+        return sum / aux.size();
+    }
+
     public void save(Alimento e) {
         alimentoRepository.saveAndFlush(e);
     }
