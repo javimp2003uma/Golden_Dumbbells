@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -22,6 +23,26 @@ public class UsuarioController {
         model.addAttribute("listaUsuario", usuario);
 
         return "usuario/index";
+    }
+
+    @PostMapping("/usuario/loginn")
+    public String login (@RequestParam("username") String username,
+                        @RequestParam("password") String password,
+                        Model model) {
+        int cnt = 0;
+        for (Usuario u : usuarioService.getAll()) {
+            if (u.getNombreUsuario().equals(username) && u.getContraseña().equals(password)) {
+                // Usuario autenticado correctamente, realizar acciones necesarias
+                cnt++; // Redirigir a la página de inicio
+            }
+        }
+
+        if (cnt == 1) {
+            model.addAttribute("cadenaSalida","Usted esta verificado");
+        } else {
+            model.addAttribute("cadenaSalida","Usted no esta verificado");
+        }
+        return "usuario/loginn";
     }
 
     @RequestMapping("/usuario/add")
