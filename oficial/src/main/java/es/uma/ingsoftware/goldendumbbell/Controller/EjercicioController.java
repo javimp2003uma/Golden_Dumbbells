@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -25,13 +26,14 @@ public class EjercicioController {
     @RequestMapping("/rutina/rutinauno")
     public String listaRutinauno(Model model){
         List<Ejercicio> ejercicios = ejercicioService.getAll();
-
-        List<Ejercicio> rutinauno = null;
-
+        List<Ejercicio> ejer= new ArrayList<>();
+        int i= 0;
         for (Ejercicio p : ejercicios) {
-            if(p.getN_rutina().equals("1")){
-                rutinauno.add(p);
+            if(p.getN_rutina() == 1){
+               ejer.add(i,p);
+               i++;
             }
+            model.addAttribute("rutinauno", ejer);
         }
 
         return "rutina/rutinauno";

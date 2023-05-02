@@ -1,6 +1,8 @@
 package es.uma.ingsoftware.goldendumbbell.Controller;
 import es.uma.ingsoftware.goldendumbbell.model.Usuario;
+import es.uma.ingsoftware.goldendumbbell.repository.UsuarioRepository;
 import es.uma.ingsoftware.goldendumbbell.service.UsuarioService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
@@ -19,8 +21,13 @@ import java.util.Map;
 
 @Controller
 public class UsuarioController {
+
+    UsuarioRepository usuarioRepository;
+
+
     @Autowired
     UsuarioService usuarioService;
+
 
     @RequestMapping("/usuario")
     public String listadoUsuario(Model model) {
@@ -31,24 +38,21 @@ public class UsuarioController {
         return "usuario/index";
     }
 
-    @PostMapping("/usuario/loginn")
-    public String login (@RequestParam("username") String username,
-                        @RequestParam("password") String password,
-                        Model model) {
-        int cnt = 0;
-        for (Usuario u : usuarioService.getAll()) {
-            if (u.getNombreUsuario().equals(username) && u.getContraseña().equals(password)) {
-                // Usuario autenticado correctamente, realizar acciones necesarias
-                cnt++; // Redirigir a la página de inicio
-            }
+    @PostMapping("/loginusuario")
+    public String doComprobarCredenciales (@RequestParam("usuario") String usuario,
+                                           @RequestParam("contrasena") String contrasena,
+                                           Model model) {
+        String urlTo = "usuario/add";
+        Usuario us = this.usuarioRepository.getContrasena(usuario,contrasena);
+
+        if (us == null) {
+            model.addAttribute("error", "Credenciales incorrectas");
+        } else {
+            model.addAttribute("cliente", us);
+            urlTo = "inicio/index";
         }
 
-        if (cnt == 1) {
-            model.addAttribute("cadenaSalida","Usted esta verificado");
-        } else {
-            model.addAttribute("cadenaSalida","Usted no esta verificado");
-        }
-        return "usuario/loginn";
+        return urlTo;
     }
 
     @RequestMapping("/usuario/add")
