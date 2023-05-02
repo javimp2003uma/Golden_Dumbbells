@@ -17,7 +17,7 @@ public class Alimento {
     private Integer n_dieta;
     private String comida;
 
-    public Alimento(){
+    public Alimento() {
 
     }
 
