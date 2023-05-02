@@ -1,8 +1,5 @@
 package es.uma.ingsoftware.goldendumbbell.Controller;
-
-import es.uma.ingsoftware.goldendumbbell.model.Alimento;
 import es.uma.ingsoftware.goldendumbbell.model.Ejercicio;
-import es.uma.ingsoftware.goldendumbbell.service.AlimentoService;
 import es.uma.ingsoftware.goldendumbbell.service.EjercicioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,12 +17,24 @@ public class EjercicioController {
     EjercicioService ejercicioService;
 
     @RequestMapping("/rutina")
-    public String listadoEjercicios(Model model) {
-        List<Ejercicio> ejercicio = ejercicioService.getAll();
-
-        model.addAttribute("listaEjercicios", ejercicio);
+    public String listadobotones(Model model) {
 
         return "rutina/index";
+    }
+
+    @RequestMapping("/rutina/rutinauno")
+    public String listaRutinauno(Model model){
+        List<Ejercicio> ejercicios = ejercicioService.getAll();
+
+        List<Ejercicio> rutinauno = null;
+
+        for (Ejercicio p : ejercicios) {
+            if(p.getN_rutina().equals("1")){
+                rutinauno.add(p);
+            }
+        }
+
+        return "rutina/rutinauno";
     }
 
     @RequestMapping("/rutina/add")
@@ -45,17 +54,13 @@ public class EjercicioController {
         model.addAttribute("alimento", ejercicioService.getById(id));
         return "rutina/add";
     }
-/*
-    @RequestMapping("/dieta/view/{id}")
-    public String vieweEjercicio(@PathVariable("id") Integer id, Model model) {
-        model.addAttribute("alimento", ejercicioService.getById(id));
-        return "rutina/view";
-    }
-    */
 
     @RequestMapping("/rutina/delete/{id}")
     public String deleteEjercicio(@PathVariable("id") Integer id) {
         ejercicioService.delete(id);
         return "redirect:/rutina";
     }
+
+
 }
+

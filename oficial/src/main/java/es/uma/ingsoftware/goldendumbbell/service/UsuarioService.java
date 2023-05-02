@@ -1,7 +1,9 @@
 package es.uma.ingsoftware.goldendumbbell.service;
 import es.uma.ingsoftware.goldendumbbell.model.Usuario;
 import es.uma.ingsoftware.goldendumbbell.repository.UsuarioRepository;
+import jakarta.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,4 +30,5 @@ public class UsuarioService {
     public Usuario getById(Integer id) {
         return usuarioRepository.getOne(id);
     }
+
 }

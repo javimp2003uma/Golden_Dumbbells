@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body th:background="@{/img/fondo.png}">
+<img th:src="@{/img/img.png}" align="left" style="height:450px">
+<h1 align="center"><font color="#f5f5f5">Bienvenidos a GOLDEN DUMBBELLS</font></h1>
+
+<a th:href="@{horario}"><input onClick="#" type="button" value="HORARIOS" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
+         BACKGROUND-COLOR: rgb(229,233,233)"></a>
+<a th:href="@{noticia}"><input onClick="#" type="button" value="NOTICIAS" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
+         BACKGROUND-COLOR: rgb(229,233,233)"></a>
+<a th:href="@{tienda}"><input onClick="#" type="button" value="TIENDA" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
+         BACKGROUND-COLOR: rgb(229,233,233)"></a>
+<a th:href="@{dieta}"><input onClick="#" type="button" value="DIETA" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
+         BACKGROUND-COLOR: rgb(229,233,233)"></a>
+<a th:href="@{rutina}"><input onClick="#" type="button" value="RUTINAS" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
+         BACKGROUND-COLOR: rgb(229,233,233)"></a>
+
+<a th:href="@{usuario}"><input onClick="#" type="button" value="PERFIL" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
+       BACKGROUND-COLOR: rgb(229,233,233)"></a>
+
+<a th:href="@{carrito}"><input onClick="#" type="button" value="CARRITO" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
+         BACKGROUND-COLOR: rgb(229,233,233)"></a>
+
+<div>
+    <table>
+        <thead>
+        <tr><td>A por todas</td></tr>
+        </thead>
+        <tbody>
+        <tr th:each="f : ${listaFrase}">
+            <td th:text="${f.frase}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

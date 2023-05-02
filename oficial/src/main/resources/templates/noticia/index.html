@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Noticia</title>
+    <title>Noticias</title>
 </head>
 <body>
-
+<h1>Noticia</h1>
+<table>
+    <thead>
+    <tr></tr>
+    </thead>
+    <tbody>
+    <tr th:each="n : ${listaNoticias}">
+        <td th:text="${n.titulo}"></td>
+        <td th:text="${n.fechadpublicacion}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

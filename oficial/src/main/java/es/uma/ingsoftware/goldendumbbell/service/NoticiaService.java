@@ -28,4 +28,5 @@ public class NoticiaService {
     public Noticia getById(Integer id) {
         return noticiaRepository.getOne(id);
     }
+
 }

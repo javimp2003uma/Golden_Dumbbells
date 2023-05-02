@@ -26,13 +26,13 @@ public class ProductoController {
     }
 
     @RequestMapping("/tienda/add")
-    public String addProducto(Model model) {
-        model.addAttribute("producto", new Producto());
-        return "tienda/add";
+    public String addProducto(Model model){
+        model.addAttribute("prodcuto", new Producto());
+        return "/tienda/add";
     }
 
     @PostMapping("/tienda/save")
-    public String saveProducto(Producto e) {
+    public String saveProducto(Producto e){
         productoService.save(e);
         return "redirect:/tienda";
     }
@@ -42,13 +42,7 @@ public class ProductoController {
         model.addAttribute("producto", productoService.getById(id));
         return "tienda/add";
     }
-    /*
-    @RequestMapping("/tienda/view/{id}")
-    public String viewProducto(@PathVariable("id") Integer id, Model model) {
-        model.addAttribute("producto", productoService.getById(id));
-        return "tienda/view";
-    }
-*/
+
     @RequestMapping("/tienda/delete/{id}")
     public String deleteProducto(@PathVariable("id") Integer id) {
         productoService.delete(id);

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Listado de editoriales</title>
+    <title>Listado de comida</title>
 </head>
 <body>
 <h1>Dietas</h1>
@@ -23,7 +23,7 @@
     </div>
     <div>
         <label for="comida">Comida</label>
-        <input th:type="text" id="comida" field="*{comida}">
+        <input th:type="text" id="comida" th:field="*{comida}">
     </div>
     <div>
         <input type="submit" value="Enviar">
