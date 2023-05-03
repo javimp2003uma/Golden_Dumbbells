@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -20,8 +21,12 @@ public class ProductoController {
     public String listadoProducto(Model model) {
         List<Producto> producto = productoService.getAll();
 
+        List<String> auxiliar = new ArrayList<>();
+        for (Producto p : producto) {
+            auxiliar.add(p.getNombreProducto());
+        }
         model.addAttribute("listaProductos", producto);
-
+        model.addAttribute("listaNombresProductos",auxiliar);
         return "tienda/index";
     }
 
