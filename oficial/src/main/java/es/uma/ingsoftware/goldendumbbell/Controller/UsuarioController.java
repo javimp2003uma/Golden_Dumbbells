@@ -38,6 +38,7 @@ public class UsuarioController {
         return "usuario/index";
     }
 
+    /*
     @PostMapping("/loginusuario")
     public String doComprobarCredenciales (@RequestParam("usuario") String usuario,
                                            @RequestParam("contrasena") String contrasena,
@@ -54,6 +55,8 @@ public class UsuarioController {
 
         return urlTo;
     }
+
+    */
 
     @RequestMapping("/usuario/add")
     public String addUsuario(Model model) {
