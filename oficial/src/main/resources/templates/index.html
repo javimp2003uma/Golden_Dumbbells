@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Iniciar Sesión</h1>
-<form action="/loginusuario" method="post">
+<form action="/loginusario" method="post">
     <label for="usuario">Usuario</label>
     <input type="text" id="usuario" name="usuario" required>
     <br>
@@ -17,6 +17,8 @@
     <input type="submit" value="Iniciar Sesión">
     <input type="reset" value="Limpiar">
 </form>
+<a th:href="@{inicio}"><input onClick="#" type="button" value="ir" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
+         BACKGROUND-COLOR: rgb(229,233,233)"></a>
 <br>
 </body>
 </html>
