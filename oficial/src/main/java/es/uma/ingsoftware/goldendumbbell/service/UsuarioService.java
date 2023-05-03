@@ -32,6 +32,8 @@ public class UsuarioService {
         return usuarioRepository.getOne(id);
     }
 
-
+    public Usuario getByUsuario (String nombreUsuario) {
+        return usuarioRepository.findByNombreusuario(nombreUsuario);
+    }
 
 }

@@ -4,30 +4,38 @@
     <meta charset="UTF-8">
     <title>Iniciosesion</title>
     <style>
-    body {
-        background-image: url('/img/pexels-leon-ardho-1552242.jpg');
-        background-size: cover;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-    }
-</style>
-
+        body {
+            background-image: url('/img/pexels-leon-ardho-1552242.jpg');
+            background-size: cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        #form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-<h1>Iniciar Sesión</h1>
-<form action="/loginusario" method="post">
-    <label for="usuario">Usuario</label>
-    <input type="text" id="usuario" name="usuario" required>
-    <br>
-    <label for="contrasena">Contraseña:</label>
-    <input type="password" id="contrasena" name="contrasena" required>
-    <br>
-    <input type="submit" value="Iniciar Sesión">
-    <input type="reset" value="Limpiar">
-</form>
+<div id="form-container">
+    <h1>Iniciar Sesión</h1>
+    <span th:if="${mensajeError != null}" style="color: red;">[[${mensajeError}]]</span>
+    <form action="/loginusario" method="post">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="usuario" required>
+        <br>
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" required>
+        <br>
+        <input type="submit" value="Iniciar Sesión">
+        <input type="reset" value="Limpiar">
+    </form>
+</div>
 <a th:href="@{inicio}"><input onClick="#" type="button" value="ir" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
          BACKGROUND-COLOR: rgb(229,233,233)"></a>
 <br>

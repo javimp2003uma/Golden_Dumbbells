@@ -38,25 +38,20 @@ public class UsuarioController {
         return "usuario/index";
     }
 
-    /*
-    @PostMapping("/loginusuario")
-    public String doComprobarCredenciales (@RequestParam("usuario") String usuario,
-                                           @RequestParam("contrasena") String contrasena,
-                                           Model model) {
-        String urlTo = "usuario/add";
-        Usuario us = this.usuarioRepository.getContrasena(usuario,contrasena);
+    @PostMapping("index")
+    public String loginUsuario(@RequestParam String usuario, @RequestParam String contrasena, HttpSession session) {
+        Usuario user = usuarioService.getByUsuario(usuario);
 
-        if (us == null) {
-            model.addAttribute("error", "Credenciales incorrectas");
+        if (user == null || !user.getContraseña().equals(contrasena)) {
+            // Si las credenciales son incorrectas, se muestra un mensaje de error y se redirige a la página de inicio de sesión.
+            session.setAttribute("mensajeError", "Usuario o contraseña incorrectos.");
+            return "redirect:/index";
         } else {
-            model.addAttribute("cliente", us);
-            urlTo = "inicio/index";
+            // Si las credenciales son correctas, se establece una sesión y se redirige a la página principal.
+            session.setAttribute("usuario", user);
+            return "redirect:/inicio/index";
         }
-
-        return urlTo;
     }
-
-    */
 
     @RequestMapping("/usuario/add")
     public String addUsuario(Model model) {
