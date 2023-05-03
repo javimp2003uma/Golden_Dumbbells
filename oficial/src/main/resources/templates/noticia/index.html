@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,40 @@
         <td th:text="${n.titulo}"></td>
         <td th:text="${n.fechadpublicacion}"></td>
     </tr>
+
+    <tr th:each="n : ${listaCuerposNoticias}">
+        <td th:text="${n}"></td>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Noticias</title>
+</head>
+<body>
+<h1>Noticia</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Título</th>
+        <th>Fecha</th>
+        <th>Cuerpo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="n, i : ${listaNoticias}">
+        <td th:text="${n.titulo}"></td>
+        <td th:text="${n.fechadpublicacion}"></td>
+        <td th:text="${listaCuerposNoticias[i.index]}"></td>
+    </tr>
     </tbody>
 </table>
 </body>
 </html>
+

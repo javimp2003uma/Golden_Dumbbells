@@ -16,6 +16,7 @@ public class Noticia {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fechadpublicacion;
     private String cuerpo;
+
     public Noticia(){
 
     }
