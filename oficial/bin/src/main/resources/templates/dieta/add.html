@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de editoriales</title>
+</head>
+<body>
+<h1>Dietas</h1>
+
+<form th:action="@{/dieta/save}" method="post" th:object="${alimento}">
+    <input th:type="hidden" id="id" th:field="*{id}">
+    <div>
+        <label for="name">Nombre</label>
+        <input th:type="text" id="name" th:field="*{name}">
+    </div>
+    <div>
+        <label for="gramos">Gramos</label>
+        <input th:type="number" id="gramos" th:field="*{gramos}">
+    </div>
+    <div>
+        <label for="n_dieta">Dieta</label>
+        <input th:type="number" id="n_dieta" th:field="*{n_dieta}">
+    </div>
+    <div>
+        <label for="comida">Comida</label>
+        <input th:type="text" id="comida" field="*{comida}">
+    </div>
+    <div>
+        <input type="submit" value="Enviar">
+    </div>
+</form>
+</body>
+</html>

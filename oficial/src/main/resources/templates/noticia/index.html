@@ -1,43 +1,45 @@
-<!--<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Noticias</title>
-</head>
-<body>
-<h1>Noticia</h1>
-<table>
-    <thead>
-    <tr></tr>
-    </thead>
-    <tbody>
-    <tr th:each="n : ${listaNoticias}">
-        <td th:text="${n.titulo}"></td>
-        <td th:text="${n.fechadpublicacion}"></td>
-    </tr>
-
-    <tr th:each="n : ${listaCuerposNoticias}">
-        <td th:text="${n}"></td>
-    </tr>
-
-    </tbody>
-</table>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Noticias</title>
+    <style>
+        body {
+            background-color: #f7f7f7;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            background-color: #d8bb47 ;
+            color: white;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #d8bb47;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid white;
+        }
+
+        th {
+            background-color: #f2a900;
+        }
+    </style>
 </head>
 <body>
-<h1>Noticia</h1>
+<h1>Noticias</h1>
 <table>
     <thead>
     <tr>
         <th>Título</th>
-        <th>Fecha</th>
+        <th>Fecha de publicación</th>
         <th>Cuerpo</th>
     </tr>
     </thead>
@@ -51,4 +53,3 @@
 </table>
 </body>
 </html>
-

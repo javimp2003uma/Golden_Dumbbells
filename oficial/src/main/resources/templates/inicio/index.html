@@ -3,33 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
+    <style>
+        body {
+            background-image: url('/img/fondo.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        img {
+            height: 450px;
+            float: left;
+            margin-right: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f5f5f5;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button-container a {
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18pt;
+            font-family: 'Times New Roman', serif;
+            color: #000000;
+            background-color: #e5e9e9;
+            border: 1px solid #808080;
+        }
+
+        .frame {
+            border: 2px solid #808080;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .frame h2 {
+            color: #f5f5f5;
+            font-size: 36pt;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .frame table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .frame td {
+            padding: 10px;
+            font-size: 16pt;
+            color: #ffffff;
+        }
+    </style>
 </head>
-<body th:background="@{/img/fondo.png}">
-<img th:src="@{/img/img.png}" align="left" style="height:450px">
-<h1 align="center"><font color="#f5f5f5">Bienvenidos a GOLDEN DUMBBELLS</font></h1>
+<body>
+<img th:src="@{/img/img.png}">
+<h1>Bienvenidos a GOLDEN DUMBBELLS</h1>
 
-<a th:href="@{horario}"><input onClick="#" type="button" value="HORARIOS" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
-         BACKGROUND-COLOR: rgb(229,233,233)"></a>
-<a th:href="@{noticia}"><input onClick="#" type="button" value="NOTICIAS" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
-         BACKGROUND-COLOR: rgb(229,233,233)"></a>
-<a th:href="@{tienda}"><input onClick="#" type="button" value="TIENDA" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
-         BACKGROUND-COLOR: rgb(229,233,233)"></a>
-<a th:href="@{dieta}"><input onClick="#" type="button" value="DIETA" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
-         BACKGROUND-COLOR: rgb(229,233,233)"></a>
-<a th:href="@{rutina}"><input onClick="#" type="button" value="RUTINAS" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
-         BACKGROUND-COLOR: rgb(229,233,233)"></a>
+<div class="button-container">
+    <a th:href="@{horario}" class="button">HORARIOS</a>
+    <a th:href="@{noticia}" class="button">NOTICIAS</a>
+    <a th:href="@{tienda}" class="button">TIENDA</a>
+    <a th:href="@{dieta}" class="button">DIETA</a>
+    <a th:href="@{rutina}" class="button">RUTINAS</a>
+    <a th:href="@{usuario}" class="button">PERFIL</a>
+    <a th:href="@{carrito}" class="button">CARRITO</a>
+</div>
 
-<a th:href="@{usuario}"><input onClick="#" type="button" value="PERFIL" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
-       BACKGROUND-COLOR: rgb(229,233,233)"></a>
-
-<a th:href="@{carrito}"><input onClick="#" type="button" value="CARRITO" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
-         BACKGROUND-COLOR: rgb(229,233,233)"></a>
-
-<div>
+<div class="frame">
+    <h2 style="color: #ffffff; font-size: 48pt;">A por todas</h2>
     <table>
-        <thead>
-        <tr><td>A por todas</td></tr>
-        </thead>
         <tbody>
         <tr th:each="f : ${listaFrase}">
             <td th:text="${f.frase}"></td>
@@ -37,6 +92,5 @@
         </tbody>
     </table>
 </div>
-
 </body>
 </html>

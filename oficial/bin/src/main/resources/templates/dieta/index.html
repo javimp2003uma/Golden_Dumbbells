@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de productos</title>
+</head>
+<body>
+<h1>Dieta</h1>
+<a href="@{/dieta/add}">Crear nuevo producto</a>
+<table>
+    <thead>
+    <tr><td>ID</td><td>Nombre</td><td>Gramos</td><td>Dieta</td><td>Comida</td><td></td></tr>
+    </thead>
+    <tbody>
+    <tr th:each="e : ${listaAlimentos}">
+        <td th:number="${e.id}"></td>
+        <td th:text="${e.name}"></td>
+        <td th:number="${e.gramos}"></td>
+        <td th:number="${e.n_dieta}"></td>
+        <td th:text="${e.comida}"></td>
+        <td><a th:href="@{/dieta/view/{id}(id=${e.id})}">Ver</a> <a th:href="@{/dieta/edit/{id}(id=${e.id})}">Editar</a> <a th:href="@{/dieta/delete/{id}(id=${e.id})}">Borrar</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
