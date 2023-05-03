@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+
+<h1>Dieta baja en calorias</h1>
+
+
+<h3>Desayuno</h3>
+
+<table>
+    <thead>
+    <tr><td>Nombre</td><td>Gramos</td></tr>
+    </thead>
+    <tbody>
+    <tr th:each="r : ${desayunocinco}">
+        <td th:text="${r.name}"></td>
+        <td th:text="${r.gramos}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Almuerzo</h3>
+
+<table>
+    <thead>
+    <tr><td>Nombre</td><td>Gramos</td></tr>
+    </thead>
+    <tbody>
+    <tr th:each="r : ${almuerzocinco}">
+        <td th:text="${r.name}"></td>
+        <td th:text="${r.gramos}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Snack</h3>
+
+<table>
+    <thead>
+    <tr><td>Nombre</td><td>Gramos</td></tr>
+    </thead>
+    <tbody>
+    <tr th:each="r : ${snackcinco}">
+        <td th:text="${r.name}"></td>
+        <td th:text="${r.gramos}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Cena</h3>
+
+<table>
+    <thead>
+    <tr><td>Nombre</td><td>Gramos</td></tr>
+    </thead>
+    <tbody>
+    <tr th:each="r : ${cenacinco}">
+        <td th:text="${r.name}"></td>
+        <td th:text="${r.gramos}"></td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>
