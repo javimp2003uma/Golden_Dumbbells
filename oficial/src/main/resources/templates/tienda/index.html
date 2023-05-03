@@ -13,6 +13,7 @@
     </thead>
     <tbody>
     <tr th:each="p : ${listaProductos}">
+        <td th:text="${p.nombreproducto}"></td>
         <td th:text="${p.cantidad}"></td>
         <td th:text="${p.precio}"></td>
         <td><a th:href="@{/tienda/edit/{id}(id=${p.id})}">Editar</a> <a th:href="@{/tienda/delete/{id}(id=${p.id})}">Borrar</a></td>
