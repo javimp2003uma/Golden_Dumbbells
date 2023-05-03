@@ -2,6 +2,7 @@ package es.uma.ingsoftware.goldendumbbell.Controller;
 
 
 import es.uma.ingsoftware.goldendumbbell.model.Alimento;
+import es.uma.ingsoftware.goldendumbbell.model.Ejercicio;
 import es.uma.ingsoftware.goldendumbbell.service.AlimentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +30,54 @@ public class AlimentoController {
         return "dieta/index";
     }
 
-    @RequestMapping("/dieta/verNombres")
+    @RequestMapping("/dieta/dietauno")
+    public String listaRutinatres(Model model){
+        List<Alimento> alimentos = alimentoService.getAll();
+        List<Alimento> desayuno= new ArrayList<>();
+        List<Alimento> almuerzo= new ArrayList<>();
+        List<Alimento> snack= new ArrayList<>();
+        List<Alimento> cena= new ArrayList<>();
+        int i= 0;
+        for (Alimento p : alimentos) {
+            for(Alimento a : alimentos){
+                if(a.getN_dieta() == 1 && a.getComida().equalsIgnoreCase("Almuerzo")){
+                    almuerzo.add(i,a);
+                }
+            }
+            model.addAttribute("almuerzouno", almuerzo);
+        }
+        i= 0;
+        for (Alimento p : alimentos) {
+            for(Alimento a : alimentos){
+                if(a.getN_dieta() == 1 && a.getComida().equalsIgnoreCase("Desayuno")){
+                    desayuno.add(i,a);
+                }
+            }
+            model.addAttribute("desayunouno", desayuno);
+        }
+        i= 0;
+        for (Alimento p : alimentos) {
+            for(Alimento a : alimentos){
+                if(a.getN_dieta() == 1 && a.getComida().equalsIgnoreCase("Snack")){
+                    snack.add(i,a);
+                }
+            }
+            model.addAttribute("snackuno", snack);
+        }
+        i= 0;
+        for (Alimento p : alimentos) {
+            for(Alimento a : alimentos){
+                if(a.getN_dieta() == 1 && a.getComida().equalsIgnoreCase("Cena")){
+                    cena.add(i,a);
+                }
+            }
+            model.addAttribute("cenauno", cena);
+        }
+
+        return "dieta/dietauno";
+    }
+
+   /* @RequestMapping("/dieta/verNombres")
     public String listadoAlimentosOnlyNombres (Model model) {
         List<String> nombres = alimentoService.getAllNombres();
         double m = alimentoService.getMediaGramos();
@@ -39,6 +87,8 @@ public class AlimentoController {
 
         return "dieta/verNombres";
     }
+    */
+
 
     @RequestMapping("/dieta/add")
     public String addAlimento(Model model) {
