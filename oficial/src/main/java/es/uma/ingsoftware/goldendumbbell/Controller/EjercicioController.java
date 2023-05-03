@@ -39,6 +39,37 @@ public class EjercicioController {
         return "rutina/rutinauno";
     }
 
+    @RequestMapping("/rutina/rutinados")
+    public String listaRutinados(Model model){
+        List<Ejercicio> ejercicios = ejercicioService.getAll();
+        List<Ejercicio> ejer= new ArrayList<>();
+        int i= 0;
+        for (Ejercicio p : ejercicios) {
+            if(p.getN_rutina() == 2){
+                ejer.add(i,p);
+                i++;
+            }
+            model.addAttribute("rutinados", ejer);
+        }
+
+        return "rutina/rutinados";
+    }
+
+    @RequestMapping("/rutina/rutinatres")
+    public String listaRutinatres(Model model){
+        List<Ejercicio> ejercicios = ejercicioService.getAll();
+        List<Ejercicio> ejer= new ArrayList<>();
+        int i= 0;
+        for (Ejercicio p : ejercicios) {
+            if(p.getN_rutina() == 3){
+                ejer.add(i,p);
+                i++;
+            }
+            model.addAttribute("rutinatres", ejer);
+        }
+
+        return "rutina/rutinatres";
+    }
     @RequestMapping("/rutina/add")
     public String addEjercicio(Model model) {
         model.addAttribute("rutina", new Ejercicio());
