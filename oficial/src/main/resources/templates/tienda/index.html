@@ -9,11 +9,11 @@
 <a th:href="@{/tienda/add}">Crear un producto</a>
 <table>
     <thead>
-    <tr><<td>Nombre</td><td>Cantidad</td><td>Precio</td><td></td></tr>
+    <tr><td>Nombre</td><td>Cantidad</td><td>Precio</td><td></td></tr>
     </thead>
     <tbody>
-    <tr th:each="p : ${listaProductos}">
-        <td th:text="${p.nombreproducto}"></td>
+    <tr th:each="p, i : ${listaProductos}">
+        <td th:text="${listaNombresProductos[i.index]}"></td>
         <td th:text="${p.cantidad}"></td>
         <td th:text="${p.precio}"></td>
         <td><a th:href="@{/tienda/edit/{id}(id=${p.id})}">Editar</a> <a th:href="@{/tienda/delete/{id}(id=${p.id})}">Borrar</a></td>
