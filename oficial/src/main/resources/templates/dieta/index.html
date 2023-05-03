@@ -1,30 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Listado de productos</title>
+    <title>Rutina</title>
 </head>
 <body>
-<h1>Dieta</h1>
-<a th:href="@{/dieta/add}">Crear nuevo producto</a>
-<a th:href="@{/dieta/verNombres}">Ver nombres de alimentos</a>
-<table>
-    <thead>
-    <tr><td>ID</td><td>Nombre</td><td>Gramos</td><td>Dieta</td><td>Comida</td><td></td></tr>
-    </thead>
-    <tbody>
-    <tr th:each="e : ${listaAlimentos}">
-        <td th:text="${e.id}"></td>
-        <td th:text="${e.name}"></td>
-        <td th:text="${e.gramos}"></td>
-        <td th:text="${e.n_dieta}"></td>
-        <td th:text="${e.comida}"></td>
-        <td> <a th:href="@{/dieta/edit/{id}(id=${e.id})}">Editar</a> <a th:href="@{/dieta/delete/{id}(id=${e.id})}">Borrar</a></td>
-    </tr>
-    <!--<tr th:each="e : ${listaNombreAlimentos}">
-        <td th:text="${e}"></td>
-    </tr> -->
-    </tbody>
-</table>
+
+<a th:href="@{dieta/dietauno}"><input onClick="#" type="button" value="Empuje" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
+         BACKGROUND-COLOR: rgb(229,233,233)"></a>
+<a th:href="@{dieta/dietados}"><input onClick="#" type="button" value="Espalda" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
+         BACKGROUND-COLOR: rgb(229,233,233)"></a>
+<a th:href="@{dieta/dietatres}"><input onClick="#" type="button" value="Piernas" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
+         BACKGROUND-COLOR: rgb(229,233,233)"></a>
+<a th:href="@{dieta/dietacuatro}"><input onClick="#" type="button" value="Espalda" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
+         BACKGROUND-COLOR: rgb(229,233,233)"></a>
+<a th:href="@{dieta/dietacinco}"><input onClick="#" type="button" value="Piernas" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
+         BACKGROUND-COLOR: rgb(229,233,233)"></a>
+
 </body>
 </html>
