@@ -16,12 +16,30 @@ public class FraseController {
     FraseService fraseService;
 
     @RequestMapping("/inicio")
-    public String listadoNoticia(Model model) {
+    public String listado(Model model) {
         List<Frase> frases = fraseService.getAll();
 
         model.addAttribute("listaFrase", frases);
 
         return "inicio/index";
+    }
+
+    @RequestMapping("/inicio/premium")
+    public String listadopremium(Model model) {
+        List<Frase> frases = fraseService.getAll();
+
+        model.addAttribute("listaFrase", frases);
+
+        return "inicio/premium";
+    }
+
+    @RequestMapping("/inicio/invitado")
+    public String listadoinvitado(Model model) {
+        List<Frase> frases = fraseService.getAll();
+
+        model.addAttribute("listaFrase", frases);
+
+        return "inicio/invitado";
     }
 
 }
