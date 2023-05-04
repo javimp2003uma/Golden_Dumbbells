@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -39,7 +36,7 @@ public class UsuarioController {
     }
 
     @PostMapping("index")
-    public String loginUsuario(@RequestParam String usuario, @RequestParam String contrasena, HttpSession session) {
+    public String loginUsuario (@RequestParam String usuario, @RequestParam String contrasena, HttpSession session) {
         Usuario user = usuarioService.getByUsuario(usuario);
 
         if (user == null || !user.getContraseña().equals(contrasena)) {
