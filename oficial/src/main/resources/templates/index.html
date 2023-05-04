@@ -31,7 +31,7 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
-        input[type="text"], input[type="password"], input[type="submit"], input[type="reset"] {
+           input[type="text"], input[type="password"], input[type="submit"], input[type="reset"] ,[type="button"] {
             border-radius: 5px;
             border: none;
             padding: 10px;
@@ -41,7 +41,7 @@
             background-color: #1E90FF;
             cursor: pointer;
         }
-        input[type="submit"]:hover, input[type="reset"]:hover {
+        input[type="submit"]:hover, input[type="reset"]:hover ,[type="button"]:hover {
             background-color: #4B0082;
         }
     </style>
@@ -59,8 +59,11 @@
         <br>
         <input type="submit" value="Iniciar Sesión">
         <input type="reset" value="Limpiar">
+        <a th:href="@{usuario/add}" type="button">Crear cuenta</a>
     </form>
 </div>
 <br>
 </body>
 </html>
+
+
