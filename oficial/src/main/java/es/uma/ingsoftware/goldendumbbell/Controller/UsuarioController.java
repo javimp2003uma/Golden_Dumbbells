@@ -36,17 +36,25 @@ public class UsuarioController {
     }
 
     @PostMapping("index")
-    public String loginUsuario (@RequestParam String usuario, @RequestParam String contrasena, HttpSession session) {
-        Usuario user = usuarioService.getByUsuario(usuario);
+    public String loginUsuario (@RequestParam("usuario") String usuario, @RequestParam("contrasena") String contrasena, HttpSession session,Model model) {
+
+        List<Usuario> usu = usuarioService.getAll();
+        Usuario user = new Usuario();
+
+        for(Usuario u: usu){
+            if(u.getNombreUsuario().equalsIgnoreCase(usuario)){
+                user = u;
+            }
+        }
 
         if (user == null || !user.getContraseña().equals(contrasena)) {
             // Si las credenciales son incorrectas, se muestra un mensaje de error y se redirige a la página de inicio de sesión.
             session.setAttribute("mensajeError", "Usuario o contraseña incorrectos.");
-            return "redirect:/index";
+            return "index";
         } else {
             // Si las credenciales son correctas, se establece una sesión y se redirige a la página principal.
-            session.setAttribute("usuario", user);
-            return "redirect:/inicio/index";
+            model.addAttribute("usuario", user);
+            return "inicio/index";
         }
     }
 
