@@ -54,7 +54,13 @@ public class UsuarioController {
             // Si las credenciales son correctas, se establece una sesión y se redirige a la página principal.
             session.setAttribute("nameforuser",user);
             model.addAttribute("usuario", user);
-            return "inicio/index";
+            if(user.getRol().equalsIgnoreCase("Invitado")){
+                return "inicio/invitado";
+            }else if(user.getRol().equalsIgnoreCase("Premium")){
+                return "inicio/premium";
+            }else{
+                return "inicio/index";
+            }
         }
     }
 
