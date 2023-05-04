@@ -41,8 +41,8 @@ public class UsuarioController {
         List<Usuario> usu = usuarioService.getAll();
         Usuario user = new Usuario();
 
-        for(Usuario u: usu){
-            if(u.getNombreUsuario().equalsIgnoreCase(usuario)){
+        for(Usuario u: usu) {
+            if(u.getNombreUsuario().equalsIgnoreCase(usuario)) {
                 user = u;
             }
         }
@@ -53,7 +53,21 @@ public class UsuarioController {
             return "index";
         } else {
             // Si las credenciales son correctas, se establece una sesión y se redirige a la página principal.
+            session.setAttribute("nameforuser",user);
             model.addAttribute("usuario", user);
+            return "inicio/index";
+        }
+    }
+
+    @GetMapping("/usuario")
+    public String verPerfil (Model model, HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
+        if (usuario != null) {
+            model.addAttribute("usuarioNameUse",usuario);
+            model.addAttribute("nombreAuxiliar",usuario.getNombreUsuario());
+            model.addAttribute("contrasenaAuxiliar",usuario.getContraseña());
+            return "usuario/index";
+        } else {
             return "inicio/index";
         }
     }

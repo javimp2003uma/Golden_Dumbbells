@@ -1,10 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Perfil</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #eee;
+        }
+    </style>
 </head>
 <body>
-
+<div class="container">
+    <h1>Bienvenido a tu perfil, <span style="color: #007bff;" th:text="${usuarioNameUse.id}"></span>!</h1>
+    <table>
+        <tr>
+            <th>Información personal</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Nombre de usuario:</td>
+            <td th:text="${nombreAuxiliar}"></td>
+        </tr>
+        <tr>
+            <td>Correo electrónico:</td>
+            <td th:text="${usuarioNameUse.correo}"></td>
+        </tr>
+        <tr>
+            <td>Número de teléfono:</td>
+            <td th:text="${usuarioNameUse.telefono}"></td>
+        </tr>
+        <tr>
+            <td>Rol:</td>
+            <td th:text="${usuarioNameUse.rol}"></td>
+        </tr>
+    </table>
+    <h2>Cambiar contraseña</h2>
+    <form method="post" action="/cambiar-contrasena">
+        <label for="current-password">Contraseña actual:</label>
+        <input type="password" id="current-password" name="current-password" required><br><br>
+        <label for="new-password">Nueva contraseña:</label>
+        <input type="password" id="new-password" name="new-password" required><br><br>
+        <label for="confirm-password">Confirmar nueva contraseña:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+        <button type="submit">Cambiar contraseña</button>
+    </form>
+</div>
 </body>
 </html>
