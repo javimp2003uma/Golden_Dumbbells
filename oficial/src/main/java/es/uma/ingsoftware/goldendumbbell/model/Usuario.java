@@ -30,8 +30,9 @@ public class Usuario {
     @ManyToMany(mappedBy = "asistentes")
     List<Clase> clases;
 
-    @OneToOne
-    public Carrito carrito;
+    @ManyToMany(mappedBy = "compras")
+    List<Carrito> carrito;
+
 
     public Usuario(){
 
