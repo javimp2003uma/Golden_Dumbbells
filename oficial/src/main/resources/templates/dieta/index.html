@@ -2,20 +2,52 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Rutina</title>
+    <title>Dietas</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .button-container a {
+            margin: 10px;
+            text-decoration: none;
+            display: block;
+            width: 200px;
+            height: 50px;
+            font-size: 18pt;
+            font-family: 'Times New Roman', serif;
+            color: #ffffff;
+            background-color: #808080;
+            border: 1px solid #808080;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
-<a th:href="@{dieta/dietauno}"><input onClick="#" type="button" value="Dia 1" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
-         BACKGROUND-COLOR: rgb(229,233,233)"></a>
-<a th:href="@{dieta/dietados}"><input onClick="#" type="button" value="Dia 2" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
-         BACKGROUND-COLOR: rgb(229,233,233)"></a>
-<a th:href="@{dieta/dietatres}"><input onClick="#" type="button" value="Dia 3" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
-         BACKGROUND-COLOR: rgb(229,233,233)"></a>
-<a th:href="@{dieta/dietacuatro}"><input onClick="#" type="button" value="Dia 4" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
-         BACKGROUND-COLOR: rgb(229,233,233)"></a>
-<a th:href="@{dieta/dietacinco}"><input onClick="#" type="button" value="Dia 5" name="boton" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 18pt; FONT-FAMILY:Times New Roman;
-         BACKGROUND-COLOR: rgb(229,233,233)"></a>
+<h1>Selecciona la dieta de tu preferencia</h1>
+
+<div class="button-container">
+    <a th:href="@{dieta/dietauno}">Alto en proteinas</a>
+    <a th:href="@{dieta/dietados}">Menú vegetal</a>
+    <a th:href="@{dieta/dietatres}">Algo diferente</a>
+    <a th:href="@{dieta/dietacuatro}">Si te gusta cocinar ...</a>
+    <a th:href="@{dieta/dietacinco}">Dias perezosos</a>
+</div>
 
 </body>
 </html>

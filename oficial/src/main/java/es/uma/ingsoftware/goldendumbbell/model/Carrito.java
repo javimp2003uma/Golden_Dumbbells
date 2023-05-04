@@ -22,6 +22,23 @@ public class Carrito {
 
     }
 
+
+    public String getNombreproducto() {
+        return nombreproducto;
+    }
+
+    public void setNombreproducto(String nombreproducto) {
+        this.nombreproducto = nombreproducto;
+    }
+
+    public Usuario getCompras() {
+        return compras;
+    }
+
+    public void setCompras(Usuario compras) {
+        this.compras = compras;
+    }
+
     public Integer getId() {
         return id;
     }

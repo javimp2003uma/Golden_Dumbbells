@@ -1,6 +1,8 @@
 package es.uma.ingsoftware.goldendumbbell.Controller;
+import es.uma.ingsoftware.goldendumbbell.model.Carrito;
 import es.uma.ingsoftware.goldendumbbell.model.Usuario;
 import es.uma.ingsoftware.goldendumbbell.repository.UsuarioRepository;
+import es.uma.ingsoftware.goldendumbbell.service.CarritoService;
 import es.uma.ingsoftware.goldendumbbell.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class UsuarioController {
@@ -71,6 +70,7 @@ public class UsuarioController {
             return "inicio/index";
         }
     }
+
 
     @RequestMapping("/usuario/add")
     public String addUsuario(Model model) {
