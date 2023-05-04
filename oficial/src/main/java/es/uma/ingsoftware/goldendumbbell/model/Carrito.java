@@ -15,11 +15,8 @@ public class Carrito {
     private Integer cantidad;
     private double precio;
 
-    @OneToOne(mappedBy = "carrito")
-    public Usuario usuario;
-
-    @OneToMany(mappedBy = "car")
-    List<Producto> productos;
+    @OneToOne()
+    public Usuario compras;
 
     public Carrito() {
 

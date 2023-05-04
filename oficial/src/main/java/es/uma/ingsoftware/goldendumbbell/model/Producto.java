@@ -17,8 +17,6 @@ public class Producto {
     private Integer cantidad;
     private double precio;
 
-    @OneToOne
-    public Carrito car;
 
     public Producto() {
 
