@@ -23,6 +23,12 @@ public class EjercicioController {
         return "rutina/index";
     }
 
+    @RequestMapping("/rutina/rutinapremium")
+    public String premiumbotones(Model model) {
+
+        return "rutina/rutinapremium";
+    }
+
     @RequestMapping("/rutina/rutinauno")
     public String listaRutinauno(Model model){
         List<Ejercicio> ejercicios = ejercicioService.getAll();
