@@ -104,36 +104,14 @@ public class UsuarioController {
     @GetMapping("/extras")
     public String extras(Model model,HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
-        List<Carrito> car = carritoService.getAll();
-        List<String> c = new ArrayList<>();
-        List<Carrito> aux = new ArrayList<>();
-
         if (usuario != null) {
-
-            model.addAttribute("hola",usuario.getId());
+            model.addAttribute("usuarioNameUse",usuario.getId());
             model.addAttribute("nombreAuxiliar",usuario.getNombreUsuario());
             model.addAttribute("contrasenaAuxiliar",usuario.getContraseña());
-
-            return "extras/carritodelusuario";
+            return "usuario/index";
         } else {
-            return "extras/carritodelusuario";
+            return "inicio/index";
         }
-
-       // int i = usuario.getId();
-        /*for(Carrito f : car){
-            if(f.getCompras().getId() == usuario.getId()){
-                aux.add(i,f);
-                i++;
-            }
-        }
-        for(Carrito ca : aux){
-            c.add(ca.getNombreProducto());
-        }
-
-         */
-
-        // model.addAttribute("carritodeluser", aux);
-        // model.addAttribute("nombres", c);
 
     }
 
