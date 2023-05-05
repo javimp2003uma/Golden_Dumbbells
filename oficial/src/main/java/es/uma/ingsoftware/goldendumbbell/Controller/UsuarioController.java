@@ -34,6 +34,12 @@ public class UsuarioController {
         return "usuario/index";
     }
 
+    @RequestMapping("/rol")
+    public String rol(Model model) {
+
+        return "rol/rol";
+    }
+
     @PostMapping("index")
     public String loginUsuario (@RequestParam("usuario") String usuario, @RequestParam("contrasena") String contrasena, HttpSession session,Model model) {
 
