@@ -88,6 +88,8 @@ public class UsuarioController {
         }
     }
 
+    
+
     @GetMapping("/inicio")
     public String verPerfilEnIndex (Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
