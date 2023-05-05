@@ -7,14 +7,17 @@
 <body>
 <table>
     <thead>
-    <tr><td>Ejercicio</td><td>Peso</td><td>Repeticiones</td></tr>
+    <tr><td>Nombre</td><td>Cantidad</td><td>Precios</td></tr>
     </thead>
     <tbody>
-    <tr th:each="r,i : ${hola}">
-        <td th:text="${hola[i.index]}"></td>
+    <tr th:each="r : ${carritoAuxiliar}">
+        <td th:text="${r.nombreproducto}"></td>
+        <td th:text="${r.cantidad}"></td>
+        <td th:text="${r.precio}"></td>
+        <a th:href="@{carrito/agregar/{id}(id=${r.nombreproducto})}">+</a>
+        <a th:href="@{carrito/delete/{id}(id=${r.nombreproducto})}">Borrar producto</a>
     </tr>
     </tbody>
 </table>
-
 </body>
 </html>
