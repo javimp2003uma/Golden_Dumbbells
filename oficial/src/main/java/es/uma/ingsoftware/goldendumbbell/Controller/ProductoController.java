@@ -1,9 +1,13 @@
 package es.uma.ingsoftware.goldendumbbell.Controller;
+import es.uma.ingsoftware.goldendumbbell.model.Carrito;
 import es.uma.ingsoftware.goldendumbbell.model.Producto;
+import es.uma.ingsoftware.goldendumbbell.model.Usuario;
 import es.uma.ingsoftware.goldendumbbell.service.ProductoService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,13 +22,17 @@ public class ProductoController {
     ProductoService productoService;
 
     @RequestMapping("/tienda")
-    public String listadoProducto(Model model) {
+    public String listadoProducto(Model model, HttpSession session) {
         List<Producto> producto = productoService.getAll();
 
         List<String> auxiliar = new ArrayList<>();
         for (Producto p : producto) {
             auxiliar.add(p.getNombreProducto());
+
         }
+
+        Usuario user = (Usuario) session.getAttribute("nameforuser");
+        model.addAttribute("uuu",user.getNombreUsuario());
         model.addAttribute("listaProductos", producto);
         model.addAttribute("listaNombresProductos",auxiliar);
         return "tienda/index";
