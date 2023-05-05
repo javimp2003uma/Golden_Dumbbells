@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -19,8 +20,15 @@ public class ClaseController {
     @RequestMapping("/horario")
     public String listadoClases(Model model) {
         List<Clase> clase = claseService.getAll();
-
-        model.addAttribute("listaClase", clase);
+        List<String> aux = new ArrayList<>();
+        int i=0;
+        for(Clase c : clase){
+            if(!aux.contains(c.getName())){
+                aux.add(i,c.getName());
+                i++;
+            }
+        }
+        model.addAttribute("listaClase", aux);
 
         return "horario/index";
     }
@@ -43,12 +51,7 @@ public class ClaseController {
             return "horario/add";
         }
 
-      /*  @RequestMapping("/horario/view/{id}")
-        public String viewClase(@PathVariable("id") Integer id, Model model) {
-            model.addAttribute("clase", claseService.getById(id));
-            return "horario/view";
-        }
-*/
+
         @RequestMapping("/horario/delete/{id}")
         public String deleteClase(@PathVariable("id") Integer id) {
             claseService.delete(id);
