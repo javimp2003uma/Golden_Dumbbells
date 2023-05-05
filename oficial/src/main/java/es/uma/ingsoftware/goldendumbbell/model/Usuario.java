@@ -38,6 +38,7 @@ public class Usuario {
 
     }
 
+
     public String getNombreusuario() {
         return nombreusuario;
     }

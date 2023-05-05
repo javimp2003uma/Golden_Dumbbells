@@ -105,13 +105,15 @@ public class UsuarioController {
     public String extras(Model model,HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
         List<Carrito> aux = carritoService.getAll();
+        List<Carrito> carrito = new ArrayList<>();
         if (usuario != null) {
             int i = usuario.getId();
-            int j = aux.get(0).getCompras().getId();
-
-            model.addAttribute("usuarioNameUse",i);
-            model.addAttribute("nombreAuxiliar",usuario.getNombreUsuario());
-            model.addAttribute("carritoAuxiliar",j);
+            for(Carrito c : aux){
+                if(i == c.getCompras().getId()){
+                    carrito.add(c);
+                }
+            }
+            model.addAttribute("carritoAuxiliar",carrito);
             return "extras/carritodelusuario";
         } else {
             return "inicio/index";
