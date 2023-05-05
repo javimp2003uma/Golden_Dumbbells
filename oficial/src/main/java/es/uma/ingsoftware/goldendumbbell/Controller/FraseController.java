@@ -16,7 +16,7 @@ public class FraseController {
     FraseService fraseService;
 
     @RequestMapping("/inicio")
-    public String listado(Model model) {
+    public String listado (Model model) {
         List<Frase> frases = fraseService.getAll();
 
         model.addAttribute("listaFrase", frases);

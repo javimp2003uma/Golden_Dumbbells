@@ -5,7 +5,8 @@
     <title>Iniciosesion</title>
     <style>
         body {
-            background-image: url('/img/desktop-wallpaper-fitness-dark-gym.jpg');
+            background-image: url('/img/wallpaperbetter1.jpg');
+            image-rendering: -moz-crisp-edges;
             background-size: cover;
             color: white;
             display: flex;
@@ -14,11 +15,19 @@
             min-height: 100vh;
         }
         #form-container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+         right: 0;
+         top: 15%;
+        transform: translateY(15%);
+}
+        #form-container {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            position: fixed;
+            position: center;
             bottom: 0;
             right: 0;
             background-color: transparent; /* para hacer el fondo del formulario transparente */
@@ -45,24 +54,24 @@
             cursor: pointer;
         }
         input[type="submit"]:hover, input[type="reset"]:hover ,[type="button"]:hover {
-            background-color: #4B0082;
+            background-color: #D4AF37;
         }
 
         .neon-text {
-        font-size: 5rem;
-        font-weight: bold;
-        color: #fff;
-        text-shadow: 0 0 5px #fff,
-                     0 0 10px #fff,
-                     0 0 20px #fff,
-                     0 0 40px #ff00e7,
-                     0 0 80px #ff00e7,
-                     0 0 90px #ff00e7,
-                     0 0 100px #ff00e7,
-                     0 0 150px #ff00e7;
-        background-color: transparent;
-        animation: flicker 2s infinite;
-    }
+            font-size: 5rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 5px #fff,
+                 0 0 10px #fff,
+                 0 0 20px #fff,
+                 0 0 40px #ff00e7,
+                 0 0 80px #ff00e7,
+                 0 0 90px #ff00e7,
+                 0 0 100px #ff00e7,
+                 0 0 150px #ff00e7;
+            background-color: transparent;
+            animation: flicker 2s infinite;
+        }
 
     /* Animación para el texto de neón */
 
@@ -89,15 +98,15 @@
 
     /* Estilos para el contenedor del texto de neón */
 .neon-container {
-    top: -700px;
     position: absolute;
-    right: -0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    align-self: flex-end;
-    height: 100vh;
-    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
     </style>
 </head>

@@ -24,7 +24,7 @@ public class CarritoController {
         List<Carrito> carrito = carritoService.getAll();
         List<Carrito> car = new ArrayList<>();
         int i = 0;
-        for(Carrito c : carrito){
+        for(Carrito c : carrito) {
             if(usuario.getId() == c.getCompras().getId()){
                 car.add(i,c);
                 i++;
@@ -32,10 +32,6 @@ public class CarritoController {
 
         }
         model.addAttribute("listaCarrito", car);
-
-
         return "carrito/index";
     }
-
-
 }
