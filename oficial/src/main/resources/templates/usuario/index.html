@@ -63,17 +63,10 @@
             <td>Rol:</td>
             <td th:text="${usuarioNameUse.rol}"></td>
         </tr>
+        <tr>
+            <td><a th:href="@{/usuario/edit/{id}(id=${usuarioNameUse.id})}">Editar tus datos</a></td>
+        </tr>
     </table>
-    <h2>Cambiar contraseña</h2>
-    <form method="post" action="/cambiar-contrasena">
-        <label for="current-password">Contraseña actual:</label>
-        <input type="password" id="current-password" name="current-password" required><br><br>
-        <label for="new-password">Nueva contraseña:</label>
-        <input type="password" id="new-password" name="new-password" required><br><br>
-        <label for="confirm-password">Confirmar nueva contraseña:</label>
-        <input type="password" id="confirm-password" name="confirm-password" required><br><br>
-        <button type="submit">Cambiar contraseña</button>
-    </form>
 </div>
 </body>
 </html>
