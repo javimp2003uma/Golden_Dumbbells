@@ -110,9 +110,10 @@ public class UsuarioController {
 
     @RequestMapping("/usuario/edit/{id}")
     public String editUsuario(@PathVariable("id") Integer id, Model model) {
-        model.addAttribute("alimento", usuarioService.getById(id));
+        model.addAttribute("usuario", usuarioService.getById(id));
         return "usuario/add";
     }
+
 /*
     @RequestMapping("/usuario/view/{id}")
     public String viewUsuario(@PathVariable("id") Integer id, Model model) {
