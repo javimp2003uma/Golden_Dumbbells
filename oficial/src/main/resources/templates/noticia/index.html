@@ -5,31 +5,55 @@
     <title>Noticias</title>
     <style>
         body {
-            background-color: #f7f7f7;
+            background-image: url('/img/representacion-3d-pesas-negras-suelo-sala-fitness-concepto-oscuro-equipos-entrenamiento-espalda_67155-14961 (1).avif');
+            background-size: cover;
             color: white;
             font-family: Arial, sans-serif;
         }
 
         h1 {
-            background-color: #d8bb47 ;
+            background-color: #555555;
             color: white;
-            padding: 20px;
+            padding: 30px;
+            text-align: center;
+            font-size: 40px;
+            margin: 0;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            background-color: #d8bb47;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 40px;
         }
 
         th, td {
-            padding: 10px;
+            padding: 20px;
             text-align: left;
-            border-bottom: 1px solid white;
+            border-bottom: 1px solid #eeeeee;
         }
 
         th {
-            background-color: #f2a900;
+            background-color: #555555;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+        }
+
+        tr:hover {
+            color: white;
+        }
+
+        .titulo {
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .cuerpo {
+            font-size: 18px;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -45,9 +69,9 @@
     </thead>
     <tbody>
     <tr th:each="n, i : ${listaNoticias}">
-        <td th:text="${n.titulo}"></td>
+        <td class="titulo" th:text="${n.titulo}"></td>
         <td th:text="${n.fechadpublicacion}"></td>
-        <td th:text="${listaCuerposNoticias[i.index]}"></td>
+        <td class="cuerpo" th:text="${listaCuerposNoticias[i.index]}"></td>
     </tr>
     </tbody>
 </table>

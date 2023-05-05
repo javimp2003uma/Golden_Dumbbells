@@ -2,43 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Videos</title>
+    <title>Videos Interactivos</title>
+    <style>
+        body {
+            background-image: url('/img/viejo-fondo-negro-textura-grunge-papel-tapiz-oscuro-pizarra-pizarra-pared-habitacion_1258-28313.avif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: #f7f7f7;
+            color: #444444;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            background-color: gray;
+            color: #444444;
+            padding: 30px;
+            font-size: 40px;
+            margin: 0;
+        }
+
+        div {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        h2 {
+            background-color: gray;
+            color: #444444;
+            padding: 10px;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        video {
+            width: 420px;
+            height: 320px;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Mis videos</h1>
-
+<h1>Videos Interactivos</h1>
 
 <div>
-    <h2>Video 1</h2>
-    <video width="320" height="240" controls>
+    <h2>Peso Muerto</h2>
+    <video controls>
         <source src="/img/whatsapp-video-2023-05-04-at-190652_t4niOuX3.mp4" type="video/mp4">
     </video>
 </div>
 
 <div>
-    <h2>Video 2</h2>
-    <video width="320" height="240" controls>
+    <h2>Sentadilla con Barra Libre</h2>
+    <video controls>
         <source src="/img/whatsapp-video-2023-05-04-at-190435_9N5XLhcj.mp4" type="video/mp4">
     </video>
-
 </div>
 
 <div>
-    <h2>Video 3</h2>
-    <video width="320" height="240" controls>
+    <h2>Press de Banca</h2>
+    <video controls>
         <source src="/img/whatsapp-video-2023-05-04-at-190915_RFv7OZhR.mp4" type="video/mp4">
     </video>
-    <button onclick="document.getElementsByTagName('video')[2].play()">Play</button>
 </div>
 
 <div>
-    <h2>Video 4</h2>
-    <video width="320" height="240" controls>
+    <h2>Jalón al Pecho</h2>
+    <video controls>
         <source src="/img/whatsapp-video-2023-05-04-at-211643_9aNh8LTm.mp4" type="video/mp4">
     </video>
-    <button onclick="document.getElementsByTagName('video')[3].play()">Play</button>
+</div>
+
+<div>
+    <h2>Aberturas</h2>
+    <video controls>
+        <source src="/img/whatsapp-video-2023-05-05-at-204120_f1PcTQsB (1).mp4" type="video/mp4">
+    </video>
+</div>
+
+<div>
+    <h2>Remo</h2>
+    <video controls>
+        <source src="/img/whatsapp-video-2023-05-05-at-211117-1_F4daCvt2.mp4" type="video/mp4">
+    </video>
 </div>
 
 </body>
 </html>
+
