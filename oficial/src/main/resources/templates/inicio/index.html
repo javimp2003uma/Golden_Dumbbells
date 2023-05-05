@@ -74,6 +74,22 @@
             font-size: 16pt;
             color: #e5e9e9;
         }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
     </style>
 </head>
 
@@ -94,13 +110,11 @@
 </div>
 
 <div class="frame">
-    <h2>A por todas</h2>
+    <h2 class="blink">A por todas</h2>
     <table>
-        <tbody>
-        <tr th:each="f : ${listaFrase}">
-            <td th:text="${f.frase}"></td>
+        <tr>
+            <td th:text="${nombreAuxiliar}"></td>
         </tr>
-        </tbody>
     </table>
 </div>
 </body>

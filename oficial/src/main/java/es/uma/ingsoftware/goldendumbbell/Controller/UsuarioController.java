@@ -60,13 +60,24 @@ public class UsuarioController {
             // Si las credenciales son correctas, se establece una sesión y se redirige a la página principal.
             session.setAttribute("nameforuser",user);
             model.addAttribute("usuario", user);
-            if(user.getRol().equalsIgnoreCase("Invitado")){
+            if(user.getRol().equalsIgnoreCase("Invitado")) {
                 return "inicio/invitado";
             }else if(user.getRol().equalsIgnoreCase("Premium")){
                 return "inicio/premium";
             }else{
                 return "inicio/index";
             }
+        }
+    }
+
+    @GetMapping("/inicio")
+    public String verPerfilEnIndex (Model model, HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
+        if (usuario != null) {
+            model.addAttribute("nombreAuxiliar",usuario.getNombreUsuario());
+            return "inicio/index";
+        } else {
+            return "";
         }
     }
 

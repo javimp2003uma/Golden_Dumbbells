@@ -5,12 +5,12 @@
     <title>Iniciosesion</title>
     <style>
         body {
-            background-image: url('/img/pexels-leon-ardho-1552242.jpg');
+            background-image: url('/img/desktop-wallpaper-fitness-dark-gym.jpg');
             background-size: cover;
             color: white;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: space-between; /* para alinear el formulario a la derecha */
+            align-items: flex-start; /* para alinear el formulario en la parte superior */
             min-height: 100vh;
         }
         #form-container {
@@ -18,43 +18,101 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: white;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            background-color: transparent; /* para hacer el fondo del formulario transparente */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         }
         h1 {
-            color: #1E90FF;
+            color: #ffffff; /* para hacer el color de la letra blanca */
         }
         label {
-            color: #1E90FF;
+            color: #ffffff; /* para hacer el color de la letra blanca */
             font-weight: bold;
             margin-bottom: 10px;
         }
-           input[type="text"], input[type="password"], input[type="submit"], input[type="reset"] ,[type="button"] {
+        input[type="text"], input[type="password"], input[type="submit"], input[type="reset"], [type="button"] {
             border-radius: 5px;
             border: none;
             padding: 10px;
             margin-bottom: 10px;
             font-size: 18px;
-            color: white;
-            background-color: #1E90FF;
+            color: #000000; /* para hacer el color de las letras de los botones negro */
+            background-color: #ffffff; /* para hacer el color de los botones blanco */
             cursor: pointer;
         }
         input[type="submit"]:hover, input[type="reset"]:hover ,[type="button"]:hover {
             background-color: #4B0082;
         }
+
+        .neon-text {
+        font-size: 5rem;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 0 0 5px #fff,
+                     0 0 10px #fff,
+                     0 0 20px #fff,
+                     0 0 40px #ff00e7,
+                     0 0 80px #ff00e7,
+                     0 0 90px #ff00e7,
+                     0 0 100px #ff00e7,
+                     0 0 150px #ff00e7;
+        background-color: transparent;
+        animation: flicker 2s infinite;
+    }
+
+    /* Animación para el texto de neón */
+
+    @keyframes flicker {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.1;
+        text-shadow: none;
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 5px #fff,
+                     0 0 10px #fff,
+                     0 0 20px #fff,
+                     0 0 40px #ff00e7,
+                     0 0 80px #ff00e7,
+                     0 0 90px #ff00e7,
+                     0 0 100px #ff00e7,
+                     0 0 150px #ff00e7;
+    }
+}
+
+    /* Estilos para el contenedor del texto de neón */
+.neon-container {
+    top: -700px;
+    position: absolute;
+    right: -0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-self: flex-end;
+    height: 100vh;
+    background-color: transparent;
+}
     </style>
 </head>
 <body>
+<div class="neon-container">
+    <h1 class="neon-text">GOLDEN DUMBELLS</h1>
+</div>
 <div id="form-container">
-    <h1 style="color: #1E90FF;">Iniciar Sesión</h1>
+    <h1>Iniciar Sesión</h1>
     <span th:if="${mensajeError != null}" style="color: red;">[[${mensajeError}]]</span>
     <form action="/index" method="post">
-        <label for="usuario" style="color: #1E90FF;">Usuario</label>
+        <label for="usuario">Usuario</label>
         <input type="text" id="usuario" name="usuario" required>
         <br>
-        <label for="contrasena" style="color: #1E90FF;">Contraseña:</label>
+        <label for="contrasena">Contraseña:</label>
         <input type="password" id="contrasena" name="contrasena" required>
         <br>
         <input type="submit" value="Iniciar Sesión">
@@ -66,5 +124,3 @@
 <br>
 </body>
 </html>
-
-
