@@ -19,10 +19,8 @@
         bottom: 0;
         left: 0;
          right: 0;
-         top: 15%;
-        transform: translateY(15%);
-}
-        #form-container {
+         top:2%;
+        transform: translateY(2%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -64,13 +62,13 @@
             text-shadow: 0 0 5px #fff,
                  0 0 10px #fff,
                  0 0 20px #fff,
-                 0 0 40px #ff00e7,
-                 0 0 80px #ff00e7,
-                 0 0 90px #ff00e7,
-                 0 0 100px #ff00e7,
-                 0 0 150px #ff00e7;
+                 0 0 40px #D4AF37,
+                 0 0 80px #D4AF37,
+                 0 0 90px #D4AF37,
+                 0 0 100px #D4AF37,
+                 0 0 150px #D4AF37;
             background-color: transparent;
-            animation: flicker 2s infinite;
+            animation: flicker 4s infinite;
         }
 
     /* Animación para el texto de neón */
@@ -88,23 +86,23 @@
         text-shadow: 0 0 5px #fff,
                      0 0 10px #fff,
                      0 0 20px #fff,
-                     0 0 40px #ff00e7,
-                     0 0 80px #ff00e7,
-                     0 0 90px #ff00e7,
-                     0 0 100px #ff00e7,
-                     0 0 150px #ff00e7;
+                     0 0 40px #D4AF37,
+                     0 0 80px #D4AF37,
+                     0 0 90px #D4AF37,
+                     0 0 100px #D4AF37,
+                     0 0 150px #D4AF37;
     }
 }
 
     /* Estilos para el contenedor del texto de neón */
 .neon-container {
-    position: absolute;
+    position: center;
+    align-items: center;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     display: flex;
-    justify-content: center;
     align-items: center;
     z-index: 1;
 }
@@ -112,13 +110,13 @@
 </head>
 <body>
 <div class="neon-container">
-    <h1 class="neon-text">GOLDEN DUMBELLS</h1>
+    <center><h1 class="neon-text">GOLDEN DUMBELLS</h1></center>
 </div>
 <div id="form-container">
     <h1>Iniciar Sesión</h1>
     <span th:if="${mensajeError != null}" style="color: red;">[[${mensajeError}]]</span>
     <form action="/index" method="post">
-        <label for="usuario">Usuario</label>
+        <label for="usuario">Usuario:      </label>
         <input type="text" id="usuario" name="usuario" required>
         <br>
         <label for="contrasena">Contraseña:</label>

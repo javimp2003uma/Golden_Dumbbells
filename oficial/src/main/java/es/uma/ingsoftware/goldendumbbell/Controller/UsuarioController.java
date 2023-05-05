@@ -40,6 +40,7 @@ public class UsuarioController {
         return "rol/rol";
     }
 
+
     @PostMapping("index")
     public String loginUsuario (@RequestParam("usuario") String usuario, @RequestParam("contrasena") String contrasena, HttpSession session,Model model) {
 
@@ -55,7 +56,7 @@ public class UsuarioController {
         if (user == null || !user.getContraseña().equals(contrasena)) {
             // Si las credenciales son incorrectas, se muestra un mensaje de error y se redirige a la página de inicio de sesión.
             session.setAttribute("mensajeError", "Usuario o contraseña incorrectos.");
-            return "index";
+            return "error/index";
         } else {
             // Si las credenciales son correctas, se establece una sesión y se redirige a la página principal.
             session.setAttribute("nameforuser",user);

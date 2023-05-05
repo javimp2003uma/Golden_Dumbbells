@@ -6,7 +6,8 @@
   <title>Inicio</title>
   <style>
         body {
-            background-color: #282c34;
+            background-image: url('/img/pexels-photo-4046718.jpeg');
+            background-size: cover;
             font-family: Arial, sans-serif;
             color: #e5e9e9;
         }
@@ -93,15 +94,6 @@
   <a th:href="@{rol}" class="button">CARRITO</a>
 </div>
 
-<div class="frame">
-  <h2>A por todas</h2>
-  <table>
-    <tbody>
-    <tr th:each="f : ${listaFrase}">
-      <td th:text="${f.frase}"></td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+
 </body>
 </html>
