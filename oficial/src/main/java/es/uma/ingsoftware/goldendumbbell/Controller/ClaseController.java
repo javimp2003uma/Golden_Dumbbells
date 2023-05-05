@@ -26,15 +26,14 @@ public class ClaseController {
     public String listadoClases(Model model) {
         List<Clase> clase = claseService.getAll();
         List<String> aux = new ArrayList<>();
-        int i=0;
-        for(Clase c : clase){
-            if(!aux.contains(c.getName())){
+        int i = 0;
+        for (Clase c : clase) {
+            if(!aux.contains(c.getName())) {
                 aux.add(i,c.getName());
                 i++;
             }
         }
         model.addAttribute("listaClase", aux);
-
         return "horario/index";
     }
 
