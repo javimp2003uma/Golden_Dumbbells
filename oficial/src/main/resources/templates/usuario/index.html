@@ -89,10 +89,10 @@
             <td>Rol:</td>
             <td th:text="${usuarioNameUse.rol}"></td>
         </tr>
-        <tr>
-            <td><a th:href="@{/usuario/edit/{id}(id=${usuarioNameUse.id})}">Editar tus datos</a></td>
-        </tr>
     </table>
+    <a th:href="@{usuario/edit/{id}(id=${usuarioNameUse.id})}">Editar tus datos</a>
+    <a th:href="@{extras}">Carrito</a>
+    <a th:href="@{clas}">Tus clases</a>
 </div>
 </body>
 </html>
