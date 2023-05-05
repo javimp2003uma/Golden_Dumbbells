@@ -31,8 +31,6 @@ public class ProductoController {
 
         }
 
-        Usuario user = (Usuario) session.getAttribute("nameforuser");
-        model.addAttribute("uuu",user.getNombreUsuario());
         model.addAttribute("listaProductos", producto);
         model.addAttribute("listaNombresProductos",auxiliar);
         return "tienda/index";

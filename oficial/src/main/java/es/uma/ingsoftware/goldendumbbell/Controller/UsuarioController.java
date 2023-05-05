@@ -1,28 +1,34 @@
 package es.uma.ingsoftware.goldendumbbell.Controller;
 import es.uma.ingsoftware.goldendumbbell.model.Carrito;
 import es.uma.ingsoftware.goldendumbbell.model.Usuario;
-import es.uma.ingsoftware.goldendumbbell.repository.UsuarioRepository;
 import es.uma.ingsoftware.goldendumbbell.service.CarritoService;
+import es.uma.ingsoftware.goldendumbbell.service.ClaseService;
 import es.uma.ingsoftware.goldendumbbell.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
+
 import java.util.*;
 
 @Controller
 public class UsuarioController {
 
-    UsuarioRepository usuarioRepository;
-
 
     @Autowired
     UsuarioService usuarioService;
+
+    @Autowired
+    ClaseService claseService;
+
+    @Autowired
+    CarritoService carritoService;
 
 
     @RequestMapping("/usuario")
@@ -40,12 +46,6 @@ public class UsuarioController {
         return "rol/rol";
     }
 
-    @RequestMapping("/extras")
-    public String extras(Model model,HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
-
-        return "extras/carritodelusuario";
-    }
 
     @RequestMapping("/clas")
     public String clas(Model model,HttpSession session) {
@@ -97,6 +97,42 @@ public class UsuarioController {
         } else {
             return "";
         }
+    }
+
+    @GetMapping("/extras")
+    public String extras(Model model,HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
+        List<Carrito> car = carritoService.getAll();
+        List<String> c = new ArrayList<>();
+        List<Carrito> aux = new ArrayList<>();
+
+        if (usuario != null) {
+
+            model.addAttribute("hola",usuario.getId());
+            model.addAttribute("nombreAuxiliar",usuario.getNombreUsuario());
+            model.addAttribute("contrasenaAuxiliar",usuario.getContraseña());
+
+            return "extras/carritodelusuario";
+        } else {
+            return "extras/carritodelusuario";
+        }
+
+       // int i = usuario.getId();
+        /*for(Carrito f : car){
+            if(f.getCompras().getId() == usuario.getId()){
+                aux.add(i,f);
+                i++;
+            }
+        }
+        for(Carrito ca : aux){
+            c.add(ca.getNombreProducto());
+        }
+
+         */
+
+        // model.addAttribute("carritodeluser", aux);
+        // model.addAttribute("nombres", c);
+
     }
 
     @GetMapping("/usuario")

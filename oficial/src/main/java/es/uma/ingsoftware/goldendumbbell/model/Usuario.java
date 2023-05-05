@@ -30,7 +30,7 @@ public class Usuario {
     @ManyToMany(mappedBy = "asistentes")
     List<Clase> clases;
 
-    @ManyToMany(mappedBy = "compras")
+    @ManyToMany(mappedBy = "hola")
     List<Carrito> carrito;
 
 
