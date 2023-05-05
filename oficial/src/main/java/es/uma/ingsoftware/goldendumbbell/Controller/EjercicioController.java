@@ -29,6 +29,12 @@ public class EjercicioController {
         return "rutina/rutinapremium";
     }
 
+    @RequestMapping("/rutina/videos")
+    public String videos(Model model) {
+
+        return "rutina/videos";
+    }
+
     @RequestMapping("/rutina/rutinauno")
     public String listaRutinauno(Model model){
         List<Ejercicio> ejercicios = ejercicioService.getAll();
