@@ -38,6 +38,38 @@ public class Usuario {
 
     }
 
+    public String getNombreusuario() {
+        return nombreusuario;
+    }
+
+    public void setNombreusuario(String nombreusuario) {
+        this.nombreusuario = nombreusuario;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public List<Clase> getClases() {
+        return clases;
+    }
+
+    public void setClases(List<Clase> clases) {
+        this.clases = clases;
+    }
+
+    public List<Carrito> getCarrito() {
+        return carrito;
+    }
+
+    public void setCarrito(List<Carrito> carrito) {
+        this.carrito = carrito;
+    }
+
     public String getRol() {
         return rol;
     }
