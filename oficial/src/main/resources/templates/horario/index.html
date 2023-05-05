@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Horario</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Clases</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="n, i : ${listaClase}">
+        <td th:text="${listaClase[i.index]}"></td>
+        <td><a th:href="@{/clases/horas/{id}(id=${e.id})}">Ver horas</a>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
