@@ -19,17 +19,16 @@ public class CarritoController {
     CarritoService carritoService;
 
     @GetMapping("/carrito")
-    public String Carritodecompra(Model model, HttpSession session) {
+    public String Carritodecompra (Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
         List<Carrito> carrito = carritoService.getAll();
         List<Carrito> car = new ArrayList<>();
         int i = 0;
-        for(Carrito c : carrito) {
-            if(usuario.getId() == c.getCompras().getId()){
+        for (Carrito c : carrito) {
+            if(usuario.getId() == c.getCompras().getId()) {
                 car.add(i,c);
                 i++;
             }
-
         }
         model.addAttribute("listaCarrito", car);
         return "carrito/index";
