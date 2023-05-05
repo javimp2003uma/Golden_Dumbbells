@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Registrate</title>
 </head>
 <body>
 
+</div>
+<form th:action="@{/usuario/save}" method="post" th:object="${usuario}">
+    <input type="hidden" id="id" th:field="*{id}">
+    <div>
+        <label for="nombreusuario">Nombre del usuario</label>
+        <input type="text" id="nombreusuario" th:field="*{nombreusuario}">
+    </div>
+    <div>
+        <label for="contrasena">Contraseña</label>
+        <input type="text" id="contrasena" th:field="*{contrasena}">
+    </div>
+    <div>
+        <label for="nacimiento">Fecha nacimiento</label>
+        <input type="date" id="nacimiento" th:field="*{nacimiento}">
+    </div>
+    <div>
+        <label for="peso">Peso</label>
+        <input type="number" id="peso" th:field="*{peso}">
+    </div>
+    <div>
+        <label for="altura">Altura</label>
+        <input type="number" id="altura" th:field="*{altura}">
+    </div>
+    <div>
+        <label for="correo">Correo</label>
+        <input type="text" id="correo" th:field="*{correo}">
+    </div>
+    <div>
+        <label for="telefono">Telefono</label>
+        <input type="number" id="telefono" th:field="*{telefono}">
+    </div>
+    <div>
+        <label for="rol">Telefono</label>
+        <input type="text" id="rol" th:field="*{rol}">
+    </div>
+
+    <div>
+        <input type="submit" value="Enviar">
+    </div>
+</form>
 </body>
 </html>
