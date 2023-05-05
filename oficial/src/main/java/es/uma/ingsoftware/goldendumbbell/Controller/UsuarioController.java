@@ -46,6 +46,12 @@ public class UsuarioController {
         return "extras/carritodelusuario";
     }
 
+    @RequestMapping("/clas")
+    public String clas(Model model) {
+
+        return "extras/clasesdelusuario";
+    }
+
 
     @PostMapping("index")
     public String loginUsuario (@RequestParam("usuario") String usuario, @RequestParam("contrasena") String contrasena, HttpSession session,Model model) {
