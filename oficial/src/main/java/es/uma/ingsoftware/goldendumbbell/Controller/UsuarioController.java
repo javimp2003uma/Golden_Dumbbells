@@ -40,6 +40,12 @@ public class UsuarioController {
         return "rol/rol";
     }
 
+    @RequestMapping("/extras")
+    public String extras(Model model) {
+
+        return "extras/carritodelusuario";
+    }
+
 
     @PostMapping("index")
     public String loginUsuario (@RequestParam("usuario") String usuario, @RequestParam("contrasena") String contrasena, HttpSession session,Model model) {
