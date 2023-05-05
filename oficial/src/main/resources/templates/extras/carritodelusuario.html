@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Carrito</title>
 </head>
 <body>
+<table>
+    <thead>
+    <tr><td>Ejercicio</td><td>Peso</td><td>Repeticiones</td></tr>
+    </thead>
+    <tbody>
+    <tr th:each="r,i : ${hola}">
+        <td th:text="${hola[i.index]}"></td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>

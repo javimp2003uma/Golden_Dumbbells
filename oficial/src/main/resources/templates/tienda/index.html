@@ -68,18 +68,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="p : ${listaProductos}">
-        <td th:text="${listaNombresProductos[__${pStat.index}__]}"></td>
+    <tr th:each="p, i : ${listaProductos}">
+        <td th:text="${listaNombresProductos[i.index]}"></td>
         <td th:text="${p.cantidad}"></td>
         <td th:text="${p.precio}"></td>
     </tr>
     </tbody>
 </table>
-
-<div class="footer">
-    <span>Tu nombre de usuario:</span>
-    <span class="username" th:text="${uuu}"></span>
-</div>
 
 <div class="image-container">
     <img src="/img/giphy.gif" alt="GIF">

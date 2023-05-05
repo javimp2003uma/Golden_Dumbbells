@@ -16,7 +16,7 @@ public class Carrito {
     private double precio;
 
     @OneToOne()
-    public Usuario compras;
+    public Usuario hola;
 
     public Carrito() {
 
@@ -32,11 +32,11 @@ public class Carrito {
     }
 
     public Usuario getCompras() {
-        return compras;
+        return hola;
     }
 
     public void setCompras(Usuario compras) {
-        this.compras = compras;
+        this.hola = compras;
     }
 
     public Integer getId() {
