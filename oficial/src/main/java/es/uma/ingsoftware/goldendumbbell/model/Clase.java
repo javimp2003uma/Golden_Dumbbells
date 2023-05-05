@@ -38,6 +38,22 @@ public class Clase {
         return hora;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public List<Usuario> getAsistentes() {
+        return asistentes;
+    }
+
+    public void setAsistentes(List<Usuario> asistentes) {
+        this.asistentes = asistentes;
+    }
+
     public void setHora(String hora) {
         this.hora = hora;
     }
