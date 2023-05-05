@@ -167,15 +167,24 @@ public class UsuarioController {
     }
 
     @RequestMapping("/carrito/delete/{id}")
-    public String deletecarrito(@PathVariable("id") Integer id) {
+    public String deletecarrito(@PathVariable("id") String id) {
+        List<Carrito> us = carritoService.getAll();
+        int idi = 0;
+        for(Carrito u : us){
+            if(u.getNombreProducto().equalsIgnoreCase(id)){
+                idi = u.getId();
+            }
+        }
+        carritoService.delete(idi);
+        return "redirect:/extras";
+    }
+
+    /*@RequestMapping("/carrito/delete/{id}")
+    public String añadircarrito(@PathVariable("id") String id) {
         carritoService.delete(id);
         return "redirect:/extras";
     }
 
-    @RequestMapping("/carrito/delete/{id}")
-    public String añadircarrito(@PathVariable("id") Integer id) {
-        carritoService.delete(id);
-        return "redirect:/extras";
-    }
+     */
 
 }
