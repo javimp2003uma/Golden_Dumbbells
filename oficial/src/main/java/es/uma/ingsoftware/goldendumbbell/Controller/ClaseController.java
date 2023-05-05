@@ -53,6 +53,12 @@ public class ClaseController {
         return "horario/horas";
     }
 
+    @RequestMapping("/horario/horas")
+    public String listahora (Model model) {
+
+        return "horario/horas";
+    }
+
 
     @RequestMapping("/horario/add")
     public String addClase(Model model) {
