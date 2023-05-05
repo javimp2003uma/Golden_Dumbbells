@@ -40,6 +40,22 @@ public class UsuarioController {
         return "rol/rol";
     }
 
+    @RequestMapping("/extras")
+    public String extras(Model model,HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
+
+        return "extras/carritodelusuario";
+    }
+
+    @RequestMapping("/clas")
+    public String clas(Model model,HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
+
+
+
+        return "extras/clasesdelusuario";
+    }
+
 
     @PostMapping("index")
     public String loginUsuario (@RequestParam("usuario") String usuario, @RequestParam("contrasena") String contrasena, HttpSession session,Model model) {
