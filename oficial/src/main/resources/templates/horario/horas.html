@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de horas</title>
+</head>
+<body>
+<tr th:each="e : ${listahoras}">
+  <td th:text="${e.hora}"></td>
+</body>
+</html>
