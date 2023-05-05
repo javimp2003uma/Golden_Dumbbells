@@ -88,7 +88,7 @@ public class UsuarioController {
         }
     }
 
-    
+
 
     @GetMapping("/inicio")
     public String verPerfilEnIndex (Model model, HttpSession session) {
@@ -104,11 +104,15 @@ public class UsuarioController {
     @GetMapping("/extras")
     public String extras(Model model,HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
+        List<Carrito> aux = carritoService.getAll();
         if (usuario != null) {
-            model.addAttribute("usuarioNameUse",usuario.getId());
+            int i = usuario.getId();
+            int j = aux.get(0).getCompras().getId();
+
+            model.addAttribute("usuarioNameUse",i);
             model.addAttribute("nombreAuxiliar",usuario.getNombreUsuario());
-            model.addAttribute("contrasenaAuxiliar",usuario.getContraseña());
-            return "usuario/index";
+            model.addAttribute("carritoAuxiliar",j);
+            return "extras/carritodelusuario";
         } else {
             return "inicio/index";
         }

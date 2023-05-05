@@ -6,14 +6,22 @@
 </head>
 <body>
 <table>
-    <thead>
-    <tr><td>Ejercicio</td><td>Peso</td><td>Repeticiones</td></tr>
-    </thead>
-    <tbody>
-    <tr th:each="r,i : ${hola}">
-        <td th:text="${hola[i.index]}"></td>
+    <tr>
+        <th>Información personal</th>
+        <th></th>
     </tr>
-    </tbody>
+    <tr>
+        <td>Nombre de usuario:</td>
+        <td th:text="${nombreAuxiliar}"></td>
+    </tr>
+    <tr>
+        <td>Nombre:</td>
+        <td th:text="${usuarioNameUse}"></td>
+    </tr>
+    <tr>
+        <td>Nombre:</td>
+        <td th:text="${carritoAuxiliar}"></td>
+    </tr>
 </table>
 
 </body>
