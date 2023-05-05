@@ -105,7 +105,7 @@ public class UsuarioController {
     @PostMapping("/usuario/save")
     public String saveUsuario(Usuario e) {
        usuarioService.save(e);
-        return "redirect:/inicio/index";
+        return "index";
     }
 
     @RequestMapping("/usuario/edit/{id}")
