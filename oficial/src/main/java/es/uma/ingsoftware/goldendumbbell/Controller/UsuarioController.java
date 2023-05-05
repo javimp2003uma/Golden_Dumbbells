@@ -165,4 +165,17 @@ public class UsuarioController {
         usuarioService.delete(id);
         return "redirect:/usuario";
     }
+
+    @RequestMapping("/carrito/delete/{id}")
+    public String deletecarrito(@PathVariable("id") Integer id) {
+        carritoService.delete(id);
+        return "redirect:/extras";
+    }
+
+    @RequestMapping("/carrito/delete/{id}")
+    public String añadircarrito(@PathVariable("id") Integer id) {
+        carritoService.delete(id);
+        return "redirect:/extras";
+    }
+
 }
