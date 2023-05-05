@@ -1,12 +1,112 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de horas</title>
+    <title>Horario</title>
+    <style>
+        /* Estilos para la tabla */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #eee;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Estilos para el formulario */
+        form {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+
+        input[type="text"], input[type="submit"], input[type="reset"] {
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #eee;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            cursor: pointer;
+            margin-left: 10px;
+            background-color: #3c8dbc;
+            color: #fff;
+        }
+
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #357ca5;
+        }
+
+        /* Estilos para la página */
+        body {
+            background-image: url("/img/pexels-scott-webb-28054.jpg");
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        #wrapper {
+            max-width: 600px;
+            margin: 200px 0 0 100px; /* ajuste de margen */
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 30px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #tabla-formulario {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 70%;
+        }
+    </style>
 </head>
 <body>
-<tr th:each="e, i : ${listahoras}">
-  <td th:text="${listahoras[i.index]}"></td>
+<div id="wrapper">
+    <h1>Horas de la actividad selecciona: </h1>
+
+    <div id="tabla-formulario">
+        <!-- Tabla de actividades -->
+        <table>
+            <thead>
+            <tr>
+                <th>Horas</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="h : ${listahoras}">
+                <td th:text="${h}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>

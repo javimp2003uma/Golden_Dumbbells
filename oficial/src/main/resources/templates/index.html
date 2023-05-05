@@ -36,6 +36,17 @@
         h1 {
             color: #ffffff; /* para hacer el color de la letra blanca */
         }
+        h5 {
+            color: red;
+            animation: blinkerror 2s infinite
+        }
+
+        @keyframes blinkerror {
+            50% {
+                opacity: 0;
+            }
+        }
+
         label {
             color: #ffffff; /* para hacer el color de la letra blanca */
             font-weight: bold;
@@ -68,7 +79,7 @@
                  0 0 100px #D4AF37,
                  0 0 150px #D4AF37;
             background-color: transparent;
-            animation: flicker 4s infinite;
+            animation: flicker 2s infinite;
         }
 
     /* Animación para el texto de neón */
@@ -104,19 +115,7 @@
     bottom: 0;
     display: flex;
     align-items: center;
-    z-
-
-
-
-
-
-
-
-
-
-
-
-     index: 1;
+    z-index: 1;
 }
     </style>
 </head>
@@ -126,7 +125,7 @@
 </div>
 <div id="form-container">
     <h1>Iniciar Sesión</h1>
-    <span th:if="${mensajeError != null}" style="color: red;">[[${mensajeError}]]</span>
+    <!--<span th:if="${mensajeError != null}" style="color: red;">[[${mensajeError}]]</span> -->
     <form action="/index" method="post">
         <label for="usuario">Usuario:      </label>
         <input type="text" id="usuario" name="usuario" required>
@@ -138,6 +137,7 @@
         <input type="reset" value="Limpiar">
         <a th:href="@{usuario/add}" type="button">Crear cuenta</a>
     </form>
+    <h5 th:text="${mensajeError}"></h5>
 </div>
 <br>
 </body>

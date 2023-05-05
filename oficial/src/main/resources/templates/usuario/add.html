@@ -3,48 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <title>Cambiando tus datos ...</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <style>
+        body {
+            background-image: url('/img/pexels-lukas-669578.jpg');
+            background-size: cover;
+        }
+
+        div.container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 <body>
 
-</div>
-<form th:action="@{/usuario/save}" method="post" th:object="${usuario}">
-    <input type="hidden" id="id" th:field="*{id}">
-    <div>
-        <label for="nombreusuario">Nombre del usuario</label>
-        <input type="text" id="nombreusuario" th:field="*{nombreusuario}">
-    </div>
-    <div>
-        <label for="contrasena">Contraseña</label>
-        <input type="text" id="contrasena" th:field="*{contrasena}">
-    </div>
-    <div>
-        <label for="nacimiento">Fecha nacimiento</label>
-        <input type="date" id="nacimiento" th:field="*{nacimiento}">
-    </div>
-    <div>
-        <label for="peso">Peso</label>
-        <input type="number" id="peso" th:field="*{peso}">
-    </div>
-    <div>
-        <label for="altura">Altura</label>
-        <input type="number" id="altura" th:field="*{altura}">
-    </div>
-    <div>
-        <label for="correo">Correo electrónico</label>
-        <input type="text" id="correo" th:field="*{correo}">
-    </div>
-    <div>
-        <label for="telefono">Teléfono</label>
-        <input type="number" id="telefono" th:field="*{telefono}">
-    </div>
-    <div>
-        <label for="rol">Rol</label>
-        <input type="text" id="rol" th:field="*{rol}">
-    </div>
+<div class="container mt-5">
+    <h1 class="mb-4">Modificar datos de usuario</h1>
 
-    <div>
-        <input type="submit" value="Enviar">
-    </div>
-</form>
+    <form th:action="@{/usuario/save}" method="post" th:object="${usuario}">
+        <input type="hidden" id="id" th:field="*{id}">
+
+        <div class="form-group row">
+            <label for="nombreusuario" class="col-sm-2 col-form-label">Nombre del usuario:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="nombreusuario" th:field="*{nombreusuario}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="contrasena" class="col-sm-2 col-form-label">Contraseña:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="contrasena" th:field="*{contrasena}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="nacimiento" class="col-sm-2 col-form-label">Fecha de nacimiento:</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" id="nacimiento" th:field="*{nacimiento}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="peso" class="col-sm-2 col-form-label">Peso:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="peso" th:field="*{peso}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="altura" class="col-sm-2 col-form-label">Altura:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="altura" th:field="*{altura}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="correo" class="col-sm-2 col-form-label">Correo electrónico:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="correo" th:field="*{correo}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="telefono" class="col-sm-2 col-form-label">Teléfono:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="telefono" th:field="*{telefono}">
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="rol" class="col-sm-2 col-form-label">Rol:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="rol" th:field="*{rol}">
+            </div>
+        </div>
+
+
+        <div>
+            <input type="submit" value="Enviar">
+        </div>
+    </form>
+</div>
 </body>
 </html>
