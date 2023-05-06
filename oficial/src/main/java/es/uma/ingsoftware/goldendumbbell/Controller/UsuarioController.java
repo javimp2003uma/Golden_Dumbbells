@@ -179,12 +179,5 @@ public class UsuarioController {
         return "redirect:/extras";
     }
 
-    /*@RequestMapping("/carrito/delete/{id}")
-    public String añadircarrito(@PathVariable("id") String id) {
-        carritoService.delete(id);
-        return "redirect:/extras";
-    }
-
-     */
 
 }
