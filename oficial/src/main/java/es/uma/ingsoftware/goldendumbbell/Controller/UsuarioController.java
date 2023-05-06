@@ -88,6 +88,8 @@ public class UsuarioController {
         }
     }
 
+
+
     @GetMapping("/inicio")
     public String verPerfilEnIndex (Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
@@ -102,36 +104,20 @@ public class UsuarioController {
     @GetMapping("/extras")
     public String extras(Model model,HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
-        List<Carrito> car = carritoService.getAll();
-        List<String> c = new ArrayList<>();
-        List<Carrito> aux = new ArrayList<>();
-
+        List<Carrito> aux = carritoService.getAll();
+        List<Carrito> carrito = new ArrayList<>();
         if (usuario != null) {
-
-            model.addAttribute("hola",usuario.getId());
-            model.addAttribute("nombreAuxiliar",usuario.getNombreUsuario());
-            model.addAttribute("contrasenaAuxiliar",usuario.getContraseña());
-
+            int i = usuario.getId();
+            for(Carrito c : aux){
+                if(i == c.getCompras().getId()){
+                    carrito.add(c);
+                }
+            }
+            model.addAttribute("carritoAuxiliar",carrito);
             return "extras/carritodelusuario";
         } else {
-            return "extras/carritodelusuario";
+            return "inicio/index";
         }
-
-       // int i = usuario.getId();
-        /*for(Carrito f : car){
-            if(f.getCompras().getId() == usuario.getId()){
-                aux.add(i,f);
-                i++;
-            }
-        }
-        for(Carrito ca : aux){
-            c.add(ca.getNombreProducto());
-        }
-
-         */
-
-        // model.addAttribute("carritodeluser", aux);
-        // model.addAttribute("nombres", c);
 
     }
 
@@ -179,4 +165,26 @@ public class UsuarioController {
         usuarioService.delete(id);
         return "redirect:/usuario";
     }
+
+    @RequestMapping("/carrito/delete/{id}")
+    public String deletecarrito(@PathVariable("id") String id) {
+        List<Carrito> us = carritoService.getAll();
+        int idi = 0;
+        for(Carrito u : us){
+            if(u.getNombreProducto().equalsIgnoreCase(id)){
+                idi = u.getId();
+            }
+        }
+        carritoService.delete(idi);
+        return "redirect:/extras";
+    }
+
+    /*@RequestMapping("/carrito/delete/{id}")
+    public String añadircarrito(@PathVariable("id") String id) {
+        carritoService.delete(id);
+        return "redirect:/extras";
+    }
+
+     */
+
 }

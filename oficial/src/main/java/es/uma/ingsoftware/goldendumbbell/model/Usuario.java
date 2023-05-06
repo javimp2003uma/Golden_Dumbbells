@@ -38,6 +38,7 @@ public class Usuario {
 
     }
 
+
     public String getNombreusuario() {
         return nombreusuario;
     }
@@ -49,6 +50,7 @@ public class Usuario {
     public String getContrasena() {
         return contrasena;
     }
+
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
