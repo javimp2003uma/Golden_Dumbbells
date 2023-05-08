@@ -16,23 +16,24 @@
     src: url('/img/Gobold Regular.otf') format('truetype');
 }
 
-        .container {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            height: 100vh;
-            margin-right: 50px;
-        }
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    margin-right: 10px;
+    margin-bottom: -700px; /* añade un margen inferior negativo */
+}
 
-        form {
-            border-radius: 10px;
-            background-color: #ffffff;
-            border: 1px solid #c0c0c0;
-            padding: 20px;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
+form {
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
 
         label {
             font-size: 16px;
@@ -79,7 +80,7 @@
         input[type="text"], input[type="email"], input[type="tel"], select {
             border: 1px solid #c0c0c0;
             border-radius: 5px;
-            padding: 10px;
+            padding: 5px;
             width: 100%;
             font-size: 16px;
             margin-bottom: 10px;
@@ -109,6 +110,8 @@
     </style>
 </head>
 <body>
+<div class="image-container">
+    <img src="/img/icono-removebg-preview.png" style="position: absolute; top: 0; right: 80; height: 300x;"></div>
 <div class="container">
     <table>
         <thead>
