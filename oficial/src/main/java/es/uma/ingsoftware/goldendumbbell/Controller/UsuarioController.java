@@ -126,11 +126,11 @@ public class UsuarioController {
     @RequestMapping("/extras/clasesdelusuario")
     public String ver(Model model,HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
+        List<Clase> clas = claseService.getAll();
+        List<Clase> c = new ArrayList<>();
         int id =0;
         if(usuario != null) {
             id = usuario.getId();
-            List<Clase> clas = claseService.getAll();
-            List<Clase> c = new ArrayList<>();
             for (Clase h : clas) {
                 for (int i = 0; i < h.getAsistentes().size(); i++) {
                     if (id == h.getAsistentes().get(i).getId()) {
@@ -205,5 +205,27 @@ public class UsuarioController {
         return "redirect:/extras";
     }
 
+    @RequestMapping("/añadir/{id}")
+    public String addClase(@PathVariable("id") Integer id, Model model,HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
 
+        List<Clase> c = claseService.getAll();
+        List<Usuario> usu = new ArrayList<>();
+        usu.add(usuario);
+        if (usuario != null) {
+            int i = usuario.getId();
+            for(Clase aux : c){
+                if(aux.getId() == id){
+                    aux.setAsistentes(usu);
+                    claseService.save(aux);
+                }
+
+            }
+
+            return "redirect:/horario";
+        } else {
+            return "";
+        }
+    }
 }
+
