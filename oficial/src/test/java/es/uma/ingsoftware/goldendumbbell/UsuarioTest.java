@@ -47,7 +47,9 @@ public class UsuarioTest {
         assertNotNull(user.getNombreUsuario());
         Usuario useraux = mock(Usuario.class);
         assertNotEquals(user.getId(),useraux.getId());
+        System.out.println("Cambio para Commit");
     }
+
 
     /*
     @Test

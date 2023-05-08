@@ -103,7 +103,7 @@
             <tbody>
             <tr th:each="h ,i: ${listahoras}">
                 <td th:text="${horas[i.index]}"></td>
-                <td><a th:href="@{clase/añadir/{id}(id=${h.id})}">Asistir</a></td>
+                <td><a th:href="@{/añadir/{id}(id=${h.id})}">Asistir</a></td>
 
             </tr>
             </tbody>
