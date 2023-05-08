@@ -123,7 +123,7 @@ public class UsuarioController {
 
     }
 
-    @RequestMapping("/extras/clasesdelusuario")
+    @RequestMapping("/extras/clasedelusuario")
     public String ver(Model model,HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
         List<Clase> clas = claseService.getAll();
@@ -140,7 +140,7 @@ public class UsuarioController {
             }
 
             model.addAttribute("clasesdelusuario", c);
-            return "extras/clasesdelusuario";
+            return "extras/clasedelusuario";
 
         }else{
             return "";
