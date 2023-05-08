@@ -2,6 +2,7 @@ package es.uma.ingsoftware.goldendumbbell.Controller;
 
 
 import es.uma.ingsoftware.goldendumbbell.model.Carrito;
+import es.uma.ingsoftware.goldendumbbell.model.Ejercicio;
 import es.uma.ingsoftware.goldendumbbell.model.Usuario;
 import es.uma.ingsoftware.goldendumbbell.service.CarritoService;
 import jakarta.servlet.http.HttpSession;
@@ -17,5 +18,7 @@ public class CarritoController {
 
     @Autowired
     CarritoService carritoService;
+
+
 
 }
