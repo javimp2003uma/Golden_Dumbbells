@@ -81,6 +81,7 @@
         <td th:text="${listaNombresProductos[i.index]}"></td>
         <td th:text="${p.cantidad}"></td>
         <td th:text="${p.precio}"></td>
+        <td><a th:href="@{tienda/añadir/{id}(id=${p.id})}">Añadir al carrito</a></td>
     </tr>
     </tbody>
 </table>
