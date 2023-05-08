@@ -107,6 +107,11 @@
 .finalizar-compra-btn:active {
   transform: scale(0.7);
 }
+ p.no-results {
+            font-style: italic;
+            color: #777;
+            text-align: center;
+        }
 
 
 </style>
@@ -115,12 +120,14 @@
 
 <h1>Carrito</h1>
 <div class="boton-container">
+
+    <main>
     <table>
         <thead>
         <tr><th>Nombre</th><th>Cantidad</th><th>Precio</th><th></th></tr>
         </thead>
         <tbody>
-        <tr th:each="r : ${carritoAuxiliar}">
+        <tr th:each="r, i : ${carritoAuxiliar}"  th:class="${i.odd}? 'odd' : 'even'">
             <td th:text="${r.nombreproducto}"></td>
             <td th:text="${r.cantidad}"></td>
             <td th:text="${r.precio}"></td>
@@ -128,8 +135,14 @@
         </tr>
         </tbody>
     </table>
+        <div th:if="${#lists.isEmpty(carritoAuxiliar)}">
+            <p class="no-results">No hay ningún producto en tu carrito actualmente.</p>
+        </div>
+    </main>
     <a th:href="@{extras/pagar}" class="finalizar-compra-btn">FINALIZAR COMPRA</a>
 </div>
+
+
 </body>
 
 </html>
