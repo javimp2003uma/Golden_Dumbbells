@@ -2,24 +2,80 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Clases del Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("/img/fondoclase.jpg");
+            background-size: cover;
+        }
+
+        header {
+            color: #D4AF37;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            margin: 2em;
+            background-color: #fff;
+            padding: 1em;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.5em;
+        }
+
+        th {
+            background-color: #D4AF37;
+            color: #fff;
+        }
+
+        tr.even {
+            background-color: #f2f2f2;
+        }
+
+        p.no-results {
+            font-style: italic;
+            color: #777;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Carrito</h1>
+<header>
+    <h1>Clases a las que estás apuntado</h1>
+</header>
 
-<table>
-    <thead>
-    <tr><th>Clase</th><th>Hora</th><th></th></tr>
-    </thead>
-    <tbody>
-    <tr th:each="r : ${clasesdelusuario}">
-        <td th:text="${r.nombre}"></td>
-        <td th:text="${r.hora}"></td>
-        <td><a th:href="@{clase/delete/{id}(id=${r.id})}">Desapuntarse</a></td>
-    </tr>
-    </tbody>
-</table>
+<main>
+    <table>
+        <thead>
+        <tr>
+            <th>Clase</th>
+            <th>Hora</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="r, i : ${clasesdelusuario}" th:class="${i.odd}? 'odd' : 'even'">
+            <td th:text="${r.nombre}"></td>
+            <td th:text="${r.hora}"></td>
+            <td><a th:href="@{clase/delete/{id}(id=${r.id})}">Desapuntarse</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div th:if="${#lists.isEmpty(clasesdelusuario)}">
+        <p class="no-results">No estás apuntado a ninguna clase actualmente.</p>
+    </div>
+</main>
 
 </body>
 </html>
