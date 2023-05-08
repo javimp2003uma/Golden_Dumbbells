@@ -127,10 +127,5 @@ public class ProductoController {
         }
     }
 
-    @RequestMapping("/extras/finalizacion")
-    public String listadoinvitado(Model model) {
-
-        return "extras/finalizacion";
-    }
 
 }

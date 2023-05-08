@@ -123,6 +123,8 @@ public class UsuarioController {
 
     }
 
+
+
     @RequestMapping("/extras/clasedelusuario")
     public String ver(Model model,HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
@@ -226,6 +228,14 @@ public class UsuarioController {
         } else {
             return "";
         }
+    }
+
+    @RequestMapping("extras/extras/delete/{id}")
+    public String deleteClase(@PathVariable("id") Integer id) {
+    claseService.delete(id);
+
+
+        return "redirect:/usuario";
     }
 }
 
