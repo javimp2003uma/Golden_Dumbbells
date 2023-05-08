@@ -297,8 +297,8 @@ public class AlimentoController {
     }
 
 */
-    @RequestMapping("/recetas")
-    public String listadoinvitado(Model model) {
+    @RequestMapping("/dieta/recetas")
+    public String recetas(Model model) {
 
         return "dieta/recetas";
     }

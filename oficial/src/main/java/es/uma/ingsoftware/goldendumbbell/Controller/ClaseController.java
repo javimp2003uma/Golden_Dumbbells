@@ -84,7 +84,7 @@ public class ClaseController {
         @RequestMapping("/clase/delete/{id}")
         public String deleteClase(@PathVariable("id") Integer id) {
             claseService.delete(id);
-            return "redirect:/extras/clasedelusuario";
+            return "redirect:usuario";
         }
 
 }
