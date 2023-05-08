@@ -70,13 +70,16 @@
     <tr><th>Nombre</th><th>Cantidad</th><th>Precio</th><th></th></tr>
     </thead>
     <tbody>
-    <tr th:each="r : ${clasesdelusuario}">
-        <td th:text="${r.nombre}"></td>
-        <td th:text="${r.hora}"></td>
+    <tr th:each="r : ${carritoAuxiliar}">
+        <td th:text="${r.nombreproducto}"></td>
+        <td th:text="${r.cantidad}"></td>
+        <td th:text="${r.precio}"></td>
+        <td><a th:href="@{carrito/delete/{id}(id=${r.nombreproducto})}">Borrar producto</a></td>
     </tr>
     </tbody>
 </table>
 <a th:href="@{extras/pagar}" class="button">FINALIZAR COMPRA</a>
 
 </body>
+
 </html>
