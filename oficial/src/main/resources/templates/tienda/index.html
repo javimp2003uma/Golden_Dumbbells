@@ -67,7 +67,12 @@
     </style>
 </head>
 <body>
+
 <h1>Tienda</h1>
+<div>
+    <a th:href="@{extras/pagar}" class="button">FINALIZAR COMPRA</a>
+</div>
+
 <table>
     <thead>
     <tr>
@@ -81,9 +86,12 @@
         <td th:text="${listaNombresProductos[i.index]}"></td>
         <td th:text="${p.cantidad}"></td>
         <td th:text="${p.precio}"></td>
+        <td><a th:href="@{tienda/añadir/{id}(id=${p.id})}">Añadir al carrito</a></td>
     </tr>
+
     </tbody>
 </table>
+
 </body>
 </html>
 

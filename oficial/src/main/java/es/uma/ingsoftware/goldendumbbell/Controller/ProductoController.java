@@ -1,5 +1,6 @@
 package es.uma.ingsoftware.goldendumbbell.Controller;
 import es.uma.ingsoftware.goldendumbbell.model.Carrito;
+import es.uma.ingsoftware.goldendumbbell.model.Noticia;
 import es.uma.ingsoftware.goldendumbbell.model.Producto;
 import es.uma.ingsoftware.goldendumbbell.model.Usuario;
 import es.uma.ingsoftware.goldendumbbell.service.CarritoService;
@@ -40,6 +41,49 @@ public class ProductoController {
         return "tienda/index";
     }
 
+
+
+
+
+    @RequestMapping("/tienda/añadir/{id}")
+    public String addCarro(@PathVariable("id") Integer id, Model model,HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
+        Carrito e = null;
+        Producto p = new Producto();
+        List<Producto> aux = productoService.getAll();
+        List<Carrito> mio = carritoService.getAll();
+        for(Producto a : aux){
+            if(a.getId() == id){
+                p = a;
+            }
+        }
+        if (usuario != null) {
+            for(Carrito h : mio){
+                if(h.getNombreProducto().equalsIgnoreCase(p.getNombreProducto())){
+                    e = h;
+                }
+            }
+            if(e != null){
+                e.setCantidad(e.getCantidad()+1);
+            }else{
+                e = new Carrito();
+                e.setNombreProducto(p.getNombreProducto());
+                e.setCantidad(1);
+                e.setPrecio(p.getPrecio());
+                e.setCompras(usuario);
+            }
+
+            carritoService.save(e);
+            return "redirect:/tienda";
+        } else {
+            return "";
+        }
+    }
+
+
+
+
+
     @RequestMapping("/tienda/add")
     public String addProducto(Model model){
         model.addAttribute("producto", new Producto());
@@ -62,6 +106,18 @@ public class ProductoController {
     public String deleteProducto(@PathVariable("id") Integer id) {
         productoService.delete(id);
         return "redirect:/tienda";
+    }
+
+    @RequestMapping("/extras/pagar")
+    public String listadoNoticia (Model model) {
+        List<Carrito> total = carritoService.getAll();
+        double i = 0;
+        for (Carrito nn : total) {
+            i += nn.getCantidad()*nn.getPrecio();
+        }
+
+        model.addAttribute("total",i);
+        return "extras/pagar";
     }
 
 

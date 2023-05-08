@@ -41,14 +41,17 @@ public class ClaseController {
     public String horarioclases (@RequestParam("nombreclase") String nombreclase, HttpSession session, Model model) {
 
         List<Clase> clase = claseService.getAll();
-        List<String> horas = new ArrayList<>();
+        List<Clase> horas = new ArrayList<>();
+        List<String> aux = new ArrayList<>();
 
         for(Clase c: clase) {
             if(c.getNombre().equalsIgnoreCase(nombreclase)) {
-                horas.add(c.getHora());
+                horas.add(c);
+                aux.add(c.getHora());
             }
         }
         model.addAttribute("listahoras",horas);
+        model.addAttribute("horas",aux);
         return "horario/horas";
     }
 
