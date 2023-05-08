@@ -229,6 +229,14 @@ public class UsuarioController {
             return "";
         }
     }
+
+    @RequestMapping("extras/extras/delete/{id}")
+    public String deleteClase(@PathVariable("id") Integer id) {
+    claseService.delete(id);
+
+
+        return "redirect:/usuario";
+    }
 }
 
 

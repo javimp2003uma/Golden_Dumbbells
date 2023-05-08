@@ -80,10 +80,4 @@ public class ClaseController {
             return "horario/add";
         }
 
-        @RequestMapping("/clase/delete/{id}")
-        public String deleteClase(@PathVariable("id") Integer id) {
-            claseService.delete(id);
-            return "redirect:/clasedelusuario";
-        }
-
 }
