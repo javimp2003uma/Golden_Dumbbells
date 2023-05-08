@@ -1,21 +1,84 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Pagar</title>
+    <title>Finalizar compra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            border-radius: 10px;
+            background-color: #ffffff;
+            border: 1px solid #c0c0c0;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], select {
+            border: 1px solid #c0c0c0;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .checkout-btn {
+            display: inline-block;
+            background-color: #55b9f3;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            background-color: #1795d4;
+        }
+    </style>
 </head>
 <body>
-<table>
-    <thead>
-    <tr>
-        <th style="width: 20%">Total a pagar</th>
-    </tr>
-    </thead>
-    <tbody>
-    <td th:text="${total}"></td>
-
-    </tbody>
-</table>
-<a th:href="@{extras/finalizacion}" class ="button">Confirmar compra</a>
+<form>
+    <h1>Finalizar compra</h1>
+    <label for="nombre">Nombre completo</label>
+    <input type="text" id="nombre" name="nombre" required>
+    <label for="correo">Correo electrónico</label>
+    <input type="email" id="correo" name="correo" required>
+    <label for="telefono">Teléfono</label>
+    <input type="tel" id="telefono" name="telefono" required>
+    <label for="direccion">Dirección de envío</label>
+    <input type="text" id="direccion" name="direccion" required>
+    <label for="metodo-pago">Método de pago</label>
+    <select id="metodo-pago" name="metodo-pago">
+        <option value="tarjeta-credito">Tarjeta de crédito</option>
+        <option value="paypal">PayPal</option>
+    </select>
+    <label for="terminos-condiciones">
+        <input type="checkbox" id="terminos-condiciones" name="terminos-condiciones" required>
+        Acepto los términos y condiciones
+    </label>
+    <button type="submit" class="checkout-btn">Finalizar compra</button>
+</form>
 </body>
 </html>
