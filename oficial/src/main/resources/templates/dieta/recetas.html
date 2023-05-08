@@ -3,19 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Recetas</title>
+    <meta charset="UTF-8">
+    <title>Recetas - Título general</title>
     <style>
+        h1{
+            font-family: 'Roman SD', sans-serif;
+            color: #000;
+            padding: 30px;
+            font-size: 70px;
+            margin: 0;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
         body {
             background-color: #f5f5f5;
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 10px;
         }
 
         .gallery {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin: 20px;
+            margin: 150px 20px;
+        }
+
+        .gallery-group {
+            display: flex;
+            flex-basis: 30%;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
 
         .gallery img {
@@ -28,13 +49,18 @@
     </style>
 </head>
 <body>
+<h1>Recetas</h1>
 <div class="gallery">
-    <img src="/img/imagen1.jpg" alt="Receta 1">
-    <img src="/img/imagen2.jpg" alt="Receta 2">
-    <img src="/img/imagen3.jpg" alt="Receta 3">
-    <img src="/img/imagen4.jpg" alt="Receta 4">
-    <img src="/img/imagen5.jpg" alt="Receta 5">
-    <img src="/img/imagen6.jpg" alt="Receta 6">
+    <div class="gallery-group">
+        <img src="/img/imagen1.jpg" alt="Receta 1">
+        <img src="/img/imagen2.jpg" alt="Receta 2">
+        <img src="/img/imagen3.jpg" alt="Receta 3">
+    </div>
+    <div class="gallery-group">
+        <img src="/img/imagen4.jpg" alt="Receta 4">
+        <img src="/img/imagen5.jpg" alt="Receta 5">
+        <img src="/img/imagen6.jpg" alt="Receta 6">
+    </div>
 </div>
 </body>
 </html>
