@@ -1,8 +1,8 @@
 package es.uma.ingsoftware.goldendumbbell;
 
-import es.uma.ingsoftware.goldendumbbell.model.Alimento;
 import es.uma.ingsoftware.goldendumbbell.model.Carrito;
 import es.uma.ingsoftware.goldendumbbell.model.Clase;
+import es.uma.ingsoftware.goldendumbbell.model.Noticia;
 import es.uma.ingsoftware.goldendumbbell.model.Usuario;
 import es.uma.ingsoftware.goldendumbbell.service.UsuarioService;
 import oracle.jdbc.proxy.annotation.Post;
@@ -20,41 +20,37 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class AlimentoTest {
+public class NoticiaTest {
 
-    Alimento al;
+    Noticia nt;
 
     @BeforeEach
     public void init() {
-        al = new Alimento();
+        nt = new Noticia();
     }
 
     @AfterEach
     public void terminate() {
-        al = null;
+        nt = null;
     }
 
     @Test
     public void inicialmenteNull() {
-        assertEquals(al.getName(),null);
+        assertEquals(nt.getTitulo(),null);
     }
 
-
     @Test
-    public void testAlimento () {
-        Alimento AlimentoMock = mock(Alimento.class);
+    public void testNoticia () {
+        Noticia noticiaTest = mock(Noticia.class);
 
-        when(AlimentoMock.getName()).thenReturn("Arroz");
-        when(AlimentoMock.getComida()).thenReturn("Desayuno");
-        when(AlimentoMock.getN_dieta()).thenReturn(1);
-        when(AlimentoMock.getGramos()).thenReturn(50);
+        when(noticiaTest.getTitulo()).thenReturn("Nueva maquina");
+        when(noticiaTest.getFechadpublicacion()).thenReturn(new Date(2003,4,23));
+        when(noticiaTest.getInfo()).thenReturn("Ha hacer prensa");
 
         //Verificar
-        assertEquals("Arroz", AlimentoMock.getName());
-        assertEquals("Desayuno", AlimentoMock.getComida());
-        assertEquals(1, AlimentoMock.getN_dieta(), 0);
-        assertEquals((Integer) 50, AlimentoMock.getGramos());
-
+        assertEquals("Nueva maquina", noticiaTest.getTitulo());
+        assertEquals(new Date(2003,4,23),noticiaTest.getFechadpublicacion());
+        assertEquals("Ha hacer prensa", noticiaTest.getInfo());
         // Verificar que el método toString funcione correctamente
         /*String expectedString = "Usuario{Identificador=null, Nombre completo='Juan', Correo='juan@example.com'}";
         assertEquals(expectedString, usuarioMock.toString());*/
