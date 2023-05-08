@@ -68,7 +68,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="r,i : ${clasesdelusuario}" th:class="${i.odd}? 'odd' : 'even'">
+        <tr th:each="r, i : ${clasesdelusuario}" th:class="${i.odd}? 'odd' : 'even'">
             <td th:text="${r.nombre}"></td>
             <td th:text="${r.hora}"></td>
             <td><a th:href="@{extras/delete/{id}(id=${r.id})}">Desapuntarse</a></td>

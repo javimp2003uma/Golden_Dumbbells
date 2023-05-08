@@ -131,6 +131,7 @@
             <td th:text="${r.nombreproducto}"></td>
             <td th:text="${r.cantidad}"></td>
             <td th:text="${r.precio}"></td>
+
             <td><a th:href="@{carrito/delete/{id}(id=${r.nombreproducto})}">Borrar producto</a></td>
         </tr>
         </tbody>

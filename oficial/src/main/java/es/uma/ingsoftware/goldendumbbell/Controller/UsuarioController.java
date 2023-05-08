@@ -207,6 +207,11 @@ public class UsuarioController {
         return "redirect:/extras";
     }
 
+
+
+
+
+
     @RequestMapping("/añadir/{id}")
     public String addClase(@PathVariable("id") Integer id, Model model,HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
@@ -237,6 +242,8 @@ public class UsuarioController {
 
         return "redirect:/usuario";
     }
+
+
 }
 
 

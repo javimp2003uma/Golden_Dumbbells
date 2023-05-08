@@ -71,9 +71,12 @@ public class ProductoController {
                 e.setCantidad(1);
                 e.setPrecio(p.getPrecio());
                 e.setCompras(usuario);
+
             }
 
             carritoService.save(e);
+
+
             return "redirect:/tienda";
         } else {
             return "";
