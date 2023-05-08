@@ -43,6 +43,7 @@ public class UsuarioTest {
     @Test
     public void testGetUser () throws Exception {
         Usuario user = mock(Usuario.class);
+        System.out.println(user.getNombreUsuario());
         assertNotNull(user.getNombreUsuario());
         Usuario useraux = mock(Usuario.class);
         assertNotEquals(user.getId(),useraux.getId());
