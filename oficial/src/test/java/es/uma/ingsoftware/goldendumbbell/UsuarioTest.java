@@ -22,8 +22,6 @@ import static org.mockito.Mockito.when;
 public class UsuarioTest {
 
     Usuario user;
-    UsuarioService usuarioService;
-    MockMvc mockMvc;
 
     @BeforeEach
     public void init() {
