@@ -10,12 +10,13 @@
 
 <table>
     <thead>
-    <tr><th>Nombre</th><th>Cantidad</th><th>Precio</th><th></th></tr>
+    <tr><th>Clase</th><th>Hora</th><th></th></tr>
     </thead>
     <tbody>
     <tr th:each="r : ${clasesdelusuario}">
         <td th:text="${r.nombre}"></td>
         <td th:text="${r.hora}"></td>
+        <td><a th:href="@{clase/delete/{id}(id=${r.id})}">Desapuntarse</a></td>
     </tr>
     </tbody>
 </table>
