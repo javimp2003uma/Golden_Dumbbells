@@ -4,16 +4,17 @@
   <meta charset="UTF-8">
   <title>Rutina</title>
   <style>
-        body {
-            background-image: url('/img/fondo-gym.jpg');
-            background-size: cover;
-            font-family: 'Times New Roman', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8e08e;
-            color: #222;
-        }
-        .button-container {
+    body {
+        background-image: url('/img/fondodieta.jpg');
+        background-size: cover;
+    }
+
+    @font-face {
+        font-family: 'Roman SD';
+        src: url('/img/Gobold Regular.otf') format('truetype');
+    }
+
+    .button-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -22,43 +23,58 @@
     }
 
     .button-container a {
-        margin: 10px;
-        text-decoration: none;
-        display: block;
-        width: 200px;
-        height: 93px;
-        font-size: 24pt;
-        font-family: 'Times New Roman', serif;
-        color: #ffffff;
-        background-color: #000;
-        border: 1px solid #808080;
-        border-radius: 5px;
+        font-size: 24px;
         text-align: center;
-        line-height: 50px;
-        transition: all 0.2s ease-in-out;
-        display: flex; /* Centra el contenido horizontalmente */
-        justify-content: center; /* Centra el contenido horizontalmente */
-        align-items: center; /* Centra el contenido verticalmente */
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #d4af37;
+        padding: 40px 60px;
+        border: 1px solid;
+        border-radius: 1000px;
+        display: inline-block;
+        transition: all .2s;
+        position: relative;
+        margin-bottom: 30px;
+        width: 200px;
+        background-color: #fff;
     }
-
-
 
     .button-container a:hover {
-        background-color: #555;
-        border-color: #555;
-        cursor: pointer;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
     }
-         h1 {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 34pt;
-            color: #fff;
-            background-color: #000;
-            padding: 10px 20px;
-            border-radius: 15px;
-        }
+
+    .button-container a:active {
+        transform: translateY(-3px);
+    }
+
+    .button-container a::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: -1;
+        transition: all .3s;
+    }
+
+    .button-container a:hover::after {
+        background-color: rgb(0, 238, 255);
+        transform: scaleX(1.4) scaleY(1.5);
+        opacity: 0;
+    }
+
+    h1 {
+        text-align: center;
+        font-family: 'Roman SD', sans-serif;
+        margin-top: 40px;
+        color: #fff;
+        font-size: 70pt;
+    }
+
 </style>
 </head>
 <body>
