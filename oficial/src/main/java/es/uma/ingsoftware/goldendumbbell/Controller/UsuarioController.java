@@ -123,6 +123,8 @@ public class UsuarioController {
 
     }
 
+
+
     @RequestMapping("/extras/clasedelusuario")
     public String ver(Model model,HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
