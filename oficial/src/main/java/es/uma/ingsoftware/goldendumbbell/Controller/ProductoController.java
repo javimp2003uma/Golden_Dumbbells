@@ -2,6 +2,7 @@ package es.uma.ingsoftware.goldendumbbell.Controller;
 import es.uma.ingsoftware.goldendumbbell.model.Carrito;
 import es.uma.ingsoftware.goldendumbbell.model.Producto;
 import es.uma.ingsoftware.goldendumbbell.model.Usuario;
+import es.uma.ingsoftware.goldendumbbell.service.CarritoService;
 import es.uma.ingsoftware.goldendumbbell.service.ProductoService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class ProductoController {
     @Autowired
     ProductoService productoService;
 
+    @Autowired
+    CarritoService carritoService;
+
     @RequestMapping("/tienda")
     public String listadoProducto(Model model, HttpSession session) {
         List<Producto> producto = productoService.getAll();
@@ -38,7 +42,7 @@ public class ProductoController {
 
     @RequestMapping("/tienda/add")
     public String addProducto(Model model){
-        model.addAttribute("prodcuto", new Producto());
+        model.addAttribute("producto", new Producto());
         return "/tienda/add";
     }
 
@@ -59,4 +63,6 @@ public class ProductoController {
         productoService.delete(id);
         return "redirect:/tienda";
     }
+
+
 }

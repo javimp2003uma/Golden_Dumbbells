@@ -113,6 +113,7 @@ public class UsuarioController {
                     carrito.add(c);
                 }
             }
+
             model.addAttribute("carritoAuxiliar",carrito);
             return "extras/carritodelusuario";
         } else {

@@ -16,7 +16,7 @@ public class UsuarioTest {
 
     @BeforeEach
     public void init() {
-        Usuario usuario = new Usuario();
+        usuario = new Usuario();
         usuarioService = new UsuarioService();
     }
 
