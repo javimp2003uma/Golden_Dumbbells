@@ -4,78 +4,79 @@
     <meta charset="UTF-8">
     <title>Dietas</title>
     <style>
-        body {
-            background-image: url('/img/fondodieta.jpg');
-            background-size: cover;
-        }
+    body {
+        background-image: url('/img/fondodieta.jpg');
+        background-size: cover;
+    }
 
-        @font-face {
-            font-family: 'Roman SD';
-            src: url('/img/Roman SD.ttf') format('truetype');
-        }
+    @font-face {
+        font-family: 'Roman SD';
+        src: url('/img/Gobold Regular.otf') format('truetype');
+    }
 
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
 
-        .button-container a {
-            font-size: 24px;
-            text-align: center;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: #d4af37;
-            padding: 40px 60px;
-            border: 1px solid;
-            border-radius: 1000px;
-            display: inline-block;
-            transition: all .2s;
-            position: relative;
-            margin-bottom: 30px;
-            width: 200px;
-            background-color: #fff;
-        }
+    .button-container a {
+        font-size: 24px;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #d4af37;
+        padding: 40px 60px;
+        border: 1px solid;
+        border-radius: 1000px;
+        display: inline-block;
+        transition: all .2s;
+        position: relative;
+        margin-bottom: 30px;
+        width: 200px;
+        background-color: #fff;
+    }
 
-        .button-container a:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
-        }
+    .button-container a:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+    }
 
-        .button-container a:active {
-            transform: translateY(-3px);
-        }
+    .button-container a:active {
+        transform: translateY(-3px);
+    }
 
-        .button-container a::after {
-            content: "";
-            display: inline-block;
-            height: 100%;
-            width: 100%;
-            border-radius: 100px;
-            top: 0;
-            left: 0;
-            position: absolute;
-            z-index: -1;
-            transition: all .3s;
-        }
+    .button-container a::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: -1;
+        transition: all .3s;
+    }
 
-        .button-container a:hover::after {
-            background-color: rgb(0, 238, 255);
-            transform: scaleX(1.4) scaleY(1.5);
-            opacity: 0;
-        }
+    .button-container a:hover::after {
+        background-color: rgb(0, 238, 255);
+        transform: scaleX(1.4) scaleY(1.5);
+        opacity: 0;
+    }
 
-        h1 {
-            text-align: center;
-            font-family: 'Roman SD', sans-serif;
-            margin-top: 20px;
-            color: #fff;
-            font-size: 45pt;
-        }
+    h1 {
+        text-align: center;
+        font-family: 'Roman SD', sans-serif;
+        margin-top: 20px;
+        color: #fff;
+        font-size: 45pt;
+    }
 
-    </style>
+</style>
+
 </head>
 <body>
 
