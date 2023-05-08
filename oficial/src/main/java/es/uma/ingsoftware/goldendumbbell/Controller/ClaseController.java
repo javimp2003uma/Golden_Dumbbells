@@ -86,4 +86,5 @@ public class ClaseController {
             claseService.delete(id);
             return "redirect:/horario";
         }
+
 }
