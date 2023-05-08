@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -28,17 +28,24 @@
 
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
 		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<version>5.7.2</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
 		</dependency>
-
 
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>5.2.5.RELEASE</version>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>3.7.7</version>
 		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
 
 
 		<dependency>
@@ -75,22 +82,54 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
-            <groupId>com.github.wyukawa.elasticsearch.unofficial.jdbc.driver</groupId>
-            <artifactId>elasticsearch-jdbc-driver</artifactId>
-            <version>0.0.9</version>
-        </dependency>
 		<dependency>
 			<groupId>com.github.wyukawa.elasticsearch.unofficial.jdbc.driver</groupId>
 			<artifactId>elasticsearch-jdbc-driver</artifactId>
 			<version>0.0.9</version>
 		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
 		<dependency>
-			<groupId>com.github.wyukawa.elasticsearch.unofficial.jdbc.driver</groupId>
-			<artifactId>elasticsearch-jdbc-driver</artifactId>
-			<version>0.0.9</version>
-			<scope>runtime</scope>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.9.2</version>
+			<scope>test</scope>
 		</dependency>
+
+
+		<!-- Dependencia para JUnit Jupiter -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.9.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Dependencia para JUnit Jupiter Engine -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.9.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>5.9.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

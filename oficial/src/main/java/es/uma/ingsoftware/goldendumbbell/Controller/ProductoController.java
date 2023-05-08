@@ -109,15 +109,22 @@ public class ProductoController {
     }
 
     @RequestMapping("/extras/pagar")
-    public String listadoNoticia (Model model) {
+    public String listadoNoticia (Model model,HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
         List<Carrito> total = carritoService.getAll();
         double i = 0;
-        for (Carrito nn : total) {
-            i += nn.getCantidad()*nn.getPrecio();
-        }
+        if(usuario != null) {
+            for (Carrito nn : total) {
+                if (usuario.getId() == nn.getCompras().getId()) {
+                    i += nn.getCantidad() * nn.getPrecio();
+                }
 
-        model.addAttribute("total",i);
-        return "extras/pagar";
+            }
+            model.addAttribute("total", i);
+            return "extras/pagar";
+        }else{
+            return "";
+        }
     }
 
 

@@ -1,5 +1,6 @@
 package es.uma.ingsoftware.goldendumbbell.Controller;
 import es.uma.ingsoftware.goldendumbbell.model.Carrito;
+import es.uma.ingsoftware.goldendumbbell.model.Clase;
 import es.uma.ingsoftware.goldendumbbell.model.Usuario;
 import es.uma.ingsoftware.goldendumbbell.service.CarritoService;
 import es.uma.ingsoftware.goldendumbbell.service.ClaseService;
@@ -122,6 +123,30 @@ public class UsuarioController {
 
     }
 
+    @RequestMapping("/extras/clasesdelusuario")
+    public String ver(Model model,HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
+        List<Clase> clas = claseService.getAll();
+        List<Clase> c = new ArrayList<>();
+        int id =0;
+        if(usuario != null) {
+            id = usuario.getId();
+            for (Clase h : clas) {
+                for (int i = 0; i < h.getAsistentes().size(); i++) {
+                    if (id == h.getAsistentes().get(i).getId()) {
+                        c.add(h);
+                    }
+                }
+            }
+
+            model.addAttribute("clasesdelusuario", c);
+            return "extras/clasesdelusuario";
+
+        }else{
+            return "";
+        }
+    }
+
     @GetMapping("/usuario")
     public String verPerfil (Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
@@ -180,5 +205,27 @@ public class UsuarioController {
         return "redirect:/extras";
     }
 
+    @RequestMapping("/añadir/{id}")
+    public String addClase(@PathVariable("id") Integer id, Model model,HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
 
+        List<Clase> c = claseService.getAll();
+        List<Usuario> usu = new ArrayList<>();
+        usu.add(usuario);
+        if (usuario != null) {
+            int i = usuario.getId();
+            for(Clase aux : c){
+                if(aux.getId() == id){
+                    aux.setAsistentes(usu);
+                    claseService.save(aux);
+                }
+
+            }
+
+            return "redirect:/horario";
+        } else {
+            return "";
+        }
+    }
 }
+

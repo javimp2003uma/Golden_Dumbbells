@@ -4,95 +4,111 @@
     <meta charset="UTF-8">
     <title>Horario</title>
     <style>
-        /* Estilos para la tabla */
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-bottom: 30px;
-        }
+    /* Estilos para la tabla */
+    table {
+        border-collapse: collapse;
+        width: 3000%;
+        margin-bottom: 30px;
+        position: relative;
+        top: 50px;
+        left: 80px;
+    }
 
-         @font-face {
-            font-family: 'Roman SD';
-        src: url('/img/Gobold Regular.otf') format('truetype');        }
-        }
+    @font-face {
+        font-family: 'Roman SD';
+        src: url('/img/Gobold Regular.otf') format('truetype');
+    }
 
-        th, td {
-            text-align: center;
-            padding: 10px;
-        }
+    th, td {
+        text-align: center;
+        padding: 10px;
+    }
 
-        th {
-            background-color: #eee;
-        }
+    th {
+        background-color: #eee;
+        border-radius: 10px;
+        position: relative;
+        bottom: center;
+        left: center;
+    }
 
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
 
-        /* Estilos para el formulario */
-        form {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-        }
+    /* Estilos para la página */
+    body {
+        background-image: url("/img/pexels-scott-webb-28054.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #333;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-        label {
-            margin-right: 10px;
-        }
+    h1 {
+        font-family: 'Roman SD', sans-serif;
+        font-size: 45px;
+        text-align: center;
+        margin-top: 20px;
+    }
 
-        input[type="text"], input[type="submit"], input[type="reset"] {
-            font-size: 16px;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            background-color: #eee;
-        }
+    #wrapper {
+        max-width: 500px;
+        margin: 200px 0 0 100px; /* ajuste de margen */
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 30px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
 
-        input[type="submit"], input[type="reset"] {
-            cursor: pointer;
-            margin-left: 10px;
-            background-color: #3c8dbc;
-            color: #fff;
-        }
+    #tabla-formulario {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 150%;
+        border-radius: 10px;
 
-        input[type="submit"]:hover, input[type="reset"]:hover {
-            background-color: #357ca5;
-        }
+    }
 
-        /* Estilos para la página */
-        body {
-            background-image: url("/img/pexels-scott-webb-28054.jpg");
-            background-size: cover;
-            background-position: center;
-            color: #333;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+    /* Estilos para el formulario */
+    form {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
 
-        h1 {
-            font-family: 'Roman SD', sans-serif;
-            text-align: center;
-            margin-top: 30px;
-        }
+    label {
+        margin-right: 10px;
+    }
 
-        #wrapper {
-            max-width: 600px;
-            margin: 200px 0 0 100px; /* ajuste de margen */
-            background-color: #fff;
-            border-radius: 5px;
-            padding: 30px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-        }
+    input[type="text"], input[type="submit"], input[type="reset"] {
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #eee;
+        position: relative;
+        right: 295px;
+    }
 
-        #tabla-formulario {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-start;
-            width: 70%;
-        }
-    </style>
+    input[type="submit"], input[type="reset"] {
+        cursor: pointer;
+        margin-left: 10px;
+        background-color: #3c8dbc;
+        color: #fff;
+        position: relative;
+        top: 0px;
+    }
+
+    input[type="submit"]:hover, input[type="reset"]:hover {
+        background-color: #357ca5;
+    }
+</style>
+
+
 </head>
 <body>
 <div id="wrapper">
@@ -115,8 +131,7 @@
 
         <!-- Formulario de consulta -->
         <form action="/horario/index" method="post">
-            <label for="nombreclase">Buscar actividad:</label>
-            <input type="text" id="nombreclase" name="nombreclase" required>
+            <input type="text" id="nombreclase" name="nombreclase" placeholder="Buscar actividad" required>
             <input type="submit" value="Buscar">
             <input type="reset" value="Limpiar">
         </form>

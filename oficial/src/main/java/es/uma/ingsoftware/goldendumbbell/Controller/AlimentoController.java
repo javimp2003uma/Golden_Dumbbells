@@ -295,7 +295,14 @@ public class AlimentoController {
         model.addAttribute("alimento", alimentoService.getById(id));
         return "dieta/view";
     }
+
 */
+    @RequestMapping("/recetas")
+    public String listadoinvitado(Model model) {
+
+        return "dieta/recetas";
+    }
+
     @RequestMapping("/dieta/delete/{id}")
     public String deleteAlimento(@PathVariable("id") Integer id) {
         alimentoService.delete(id);
