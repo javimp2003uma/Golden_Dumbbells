@@ -1,7 +1,5 @@
 package es.uma.ingsoftware.goldendumbbell.Controller;
-import es.uma.ingsoftware.goldendumbbell.model.Carrito;
 import es.uma.ingsoftware.goldendumbbell.model.Clase;
-import es.uma.ingsoftware.goldendumbbell.model.Producto;
 import es.uma.ingsoftware.goldendumbbell.model.Usuario;
 import es.uma.ingsoftware.goldendumbbell.service.ClaseService;
 import jakarta.servlet.http.HttpSession;
@@ -30,8 +28,8 @@ public class ClaseController {
         List<String> aux = new ArrayList<>();
         int i = 0;
         for (Clase c : clase) {
-            if (!aux.contains(c.getName())) {
-                aux.add(i, c.getName());
+            if(!aux.contains(c.getName())) {
+                aux.add(i,c.getName());
                 i++;
             }
         }
@@ -40,25 +38,25 @@ public class ClaseController {
     }
 
     @PostMapping("horario/index")
-    public String horarioclases(@RequestParam("nombreclase") String nombreclase, HttpSession session, Model model) {
+    public String horarioclases (@RequestParam("nombreclase") String nombreclase, HttpSession session, Model model) {
 
         List<Clase> clase = claseService.getAll();
         List<Clase> horas = new ArrayList<>();
         List<String> aux = new ArrayList<>();
 
-        for (Clase c : clase) {
-            if (c.getNombre().equalsIgnoreCase(nombreclase)) {
+        for(Clase c: clase) {
+            if(c.getNombre().equalsIgnoreCase(nombreclase)) {
                 horas.add(c);
                 aux.add(c.getHora());
             }
         }
-        model.addAttribute("listahoras", horas);
-        model.addAttribute("horas", aux);
+        model.addAttribute("listahoras",horas);
+        model.addAttribute("horas",aux);
         return "horario/horas";
     }
 
     @RequestMapping("/horario/horas")
-    public String listahora(Model model) {
+    public String listahora (Model model) {
 
         return "horario/horas";
     }
@@ -66,49 +64,27 @@ public class ClaseController {
 
     @RequestMapping("/horario/add")
     public String addClase(Model model) {
-        model.addAttribute("clase", new Clase());
-        return "horario/add";
-    }
-
-    @PostMapping("/horario/save")
-    public String saveClase(Clase e) {
-        claseService.save(e);
-        return "redirect:/horario";
-    }
-
-    @RequestMapping("/horario/edit/{id}")
-    public String editClase(@PathVariable("id") Integer id, Model model) {
-        model.addAttribute("clase", claseService.getById(id));
-        return "horario/add";
-    }
-
-
-    @RequestMapping("/horario/delete/{id}")
-    public String deleteClase(@PathVariable("id") Integer id) {
-        claseService.delete(id);
-        return "redirect:/horario";
-    }
-
-    @RequestMapping("/añadir/{id}")
-    public String addClase(@PathVariable("id") Integer id, Model model,HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
-
-        List<Clase> c = claseService.getAll();
-        List<Usuario> usu = new ArrayList<>();
-        usu.add(usuario);
-        if (usuario != null) {
-            int i = usuario.getId();
-            for(Clase aux : c){
-                if(aux.getId() == id){
-                    aux.setAsistentes(usu);
-                    claseService.save(aux);
-                }
-
+            model.addAttribute("clase", new Clase());
+            return "horario/add";
         }
 
+        @PostMapping("/horario/save")
+        public String saveClase(Clase e) {
+            claseService.save(e);
             return "redirect:/horario";
-        } else {
-            return "";
         }
-    }
+
+        @RequestMapping("/horario/edit/{id}")
+        public String editClase(@PathVariable("id") Integer id, Model model) {
+            model.addAttribute("clase", claseService.getById(id));
+            return "horario/add";
+        }
+
+
+        @RequestMapping("/horario/delete/{id}")
+        public String deleteClase(@PathVariable("id") Integer id) {
+            claseService.delete(id);
+            return "redirect:/horario";
+        }
+
 }

@@ -1,5 +1,6 @@
 package es.uma.ingsoftware.goldendumbbell.Controller;
 import es.uma.ingsoftware.goldendumbbell.model.Carrito;
+import es.uma.ingsoftware.goldendumbbell.model.Clase;
 import es.uma.ingsoftware.goldendumbbell.model.Usuario;
 import es.uma.ingsoftware.goldendumbbell.service.CarritoService;
 import es.uma.ingsoftware.goldendumbbell.service.ClaseService;
@@ -120,6 +121,30 @@ public class UsuarioController {
             return "inicio/index";
         }
 
+    }
+
+    @RequestMapping("/extras/clasesdelusuario")
+    public String ver(Model model,HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
+        int id =0;
+        if(usuario != null) {
+            id = usuario.getId();
+            List<Clase> clas = claseService.getAll();
+            List<Clase> c = new ArrayList<>();
+            for (Clase h : clas) {
+                for (int i = 0; i < h.getAsistentes().size(); i++) {
+                    if (id == h.getAsistentes().get(i).getId()) {
+                        c.add(h);
+                    }
+                }
+            }
+
+            model.addAttribute("clasesdelusuario", c);
+            return "extras/clasesdelusuario";
+
+        }else{
+            return "";
+        }
     }
 
     @GetMapping("/usuario")
