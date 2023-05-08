@@ -205,5 +205,27 @@ public class UsuarioController {
         return "redirect:/extras";
     }
 
+    @RequestMapping("/añadir/{id}")
+    public String addClase(@PathVariable("id") Integer id, Model model,HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
 
+        List<Clase> c = claseService.getAll();
+        List<Usuario> usu = new ArrayList<>();
+        usu.add(usuario);
+        if (usuario != null) {
+            int i = usuario.getId();
+            for(Clase aux : c){
+                if(aux.getId() == id){
+                    aux.setAsistentes(usu);
+                    claseService.save(aux);
+                }
+
+            }
+
+            return "redirect:/horario";
+        } else {
+            return "";
+        }
+    }
 }
+
