@@ -6,24 +6,23 @@
     <meta charset="UTF-8">
     <title>Recetas - Título general</title>
     <style>
-        h1{
-            font-family: 'Roman SD', sans-serif;
-            color: #000;
+
+         h1{
+            font-family: 'Playfair Display', serif;
+            color: #D0AC58;
             padding: 30px;
-            font-size: 70px;
+            font-size: 80px;
             margin: 0;
             position: absolute;
-            top: 0;
+            top: 20px;;
             left: 50%;
             transform: translateX(-50%);
+
         }
 
-         @font-face {
-        font-family: 'Roman SD';
-        src: url('/img/Gobold Regular.otf') format('truetype');
-    }
-
-        body {
+         body {
+            background-image: url('/img/fondoreceta.jpg');
+            background-size: cover;
             background-color: #f5f5f5;
             font-family: Arial, sans-serif;
             margin: 0;
@@ -34,34 +33,43 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin: 150px 20px;
-        }
-
-        .gallery-group {
-            display: flex;
-            flex-basis: 30%;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            margin: 10px;
         }
 
         .gallery img {
-            max-width: 100%;
+            max-width: 30%;
             height: auto;
             margin-bottom: 20px;
+
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
+
+        .container {
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            margin-top: 200px;
+
+        }
+
+        .group1, .group2 {
+            margin-bottom: 200px;
+        }
+
     </style>
 </head>
 <body>
 <h1>Recetas</h1>
-<div class="gallery">
-    <div class="gallery-group">
+<div class="container group1">
+    <div class="gallery">
         <img src="/img/imagen1.jpg" alt="Receta 1">
         <img src="/img/imagen2.jpg" alt="Receta 2">
         <img src="/img/imagen3.jpg" alt="Receta 3">
     </div>
-    <div class="gallery-group">
+</div>
+<div class="container group2">
+    <div class="gallery">
         <img src="/img/imagen4.jpg" alt="Receta 4">
         <img src="/img/imagen5.jpg" alt="Receta 5">
         <img src="/img/imagen6.jpg" alt="Receta 6">
