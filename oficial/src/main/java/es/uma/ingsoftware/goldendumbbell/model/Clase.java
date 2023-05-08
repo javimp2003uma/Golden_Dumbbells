@@ -1,9 +1,6 @@
 package es.uma.ingsoftware.goldendumbbell.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 import java.util.List;
 import java.util.Objects;
@@ -19,7 +16,12 @@ public class Clase {
     private Integer n_usuario;
 
     @ManyToMany
+            @JoinTable(
+                    name = "clase_asistentes",
+                    joinColumns = @JoinColumn(name = "asistentes_id"),
+                    inverseJoinColumns = @JoinColumn(name = "clases_id"))
     List<Usuario> asistentes;
+
     
 
     public Integer getN_usuario() {
@@ -96,4 +98,7 @@ public class Clase {
                 ",Hora=" + hora +
                 '}';
     }
+
+
+
 }

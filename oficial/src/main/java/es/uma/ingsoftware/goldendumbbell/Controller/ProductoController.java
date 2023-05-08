@@ -1,5 +1,6 @@
 package es.uma.ingsoftware.goldendumbbell.Controller;
 import es.uma.ingsoftware.goldendumbbell.model.Carrito;
+import es.uma.ingsoftware.goldendumbbell.model.Noticia;
 import es.uma.ingsoftware.goldendumbbell.model.Producto;
 import es.uma.ingsoftware.goldendumbbell.model.Usuario;
 import es.uma.ingsoftware.goldendumbbell.service.CarritoService;
@@ -105,6 +106,18 @@ public class ProductoController {
     public String deleteProducto(@PathVariable("id") Integer id) {
         productoService.delete(id);
         return "redirect:/tienda";
+    }
+
+    @RequestMapping("/extras/pagar")
+    public String listadoNoticia (Model model) {
+        List<Carrito> total = carritoService.getAll();
+        double i = 0;
+        for (Carrito nn : total) {
+            i += nn.getCantidad()*nn.getPrecio();
+        }
+
+        model.addAttribute("total",i);
+        return "extras/pagar";
     }
 
 
