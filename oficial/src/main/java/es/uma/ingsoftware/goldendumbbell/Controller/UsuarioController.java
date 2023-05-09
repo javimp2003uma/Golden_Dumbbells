@@ -1,9 +1,11 @@
 package es.uma.ingsoftware.goldendumbbell.Controller;
 import es.uma.ingsoftware.goldendumbbell.model.Carrito;
 import es.uma.ingsoftware.goldendumbbell.model.Clase;
+import es.uma.ingsoftware.goldendumbbell.model.Producto;
 import es.uma.ingsoftware.goldendumbbell.model.Usuario;
 import es.uma.ingsoftware.goldendumbbell.service.CarritoService;
 import es.uma.ingsoftware.goldendumbbell.service.ClaseService;
+import es.uma.ingsoftware.goldendumbbell.service.ProductoService;
 import es.uma.ingsoftware.goldendumbbell.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,9 @@ public class UsuarioController {
 
     @Autowired
     CarritoService carritoService;
+
+    @Autowired
+    ProductoService productoService;
 
 
     @RequestMapping("/usuario")
@@ -234,6 +239,75 @@ public class UsuarioController {
             return "";
         }
     }
+
+    @RequestMapping("/tienda/añadir/{id}")
+    public String addCarro(@PathVariable("id") Integer id, Model model,HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
+        Carrito e = null;
+        Producto p = new Producto();
+        List<Producto> aux = productoService.getAll();
+        List<Carrito> mio = carritoService.getAll();
+        for(Producto a : aux){
+            if(a.getId() == id){
+                if(a.getCantidad()> 1){
+                    a.setCantidad(a.getCantidad()-1);
+                    productoService.save(a);
+                    p=a;
+                }else{
+                    p=a;
+                    productoService.delete(a.getId());
+                }
+
+            }
+        }
+        if (usuario != null) {
+            for(Carrito h : mio){
+                if(h.getNombreProducto().equalsIgnoreCase(p.getNombreProducto())){
+                    e = h;
+                }
+            }
+            if(e != null){
+                e.setCantidad(e.getCantidad()+1);
+            }else{
+                e = new Carrito();
+                e.setNombreProducto(p.getNombreProducto());
+                e.setCantidad(1);
+                e.setPrecio(p.getPrecio());
+                e.setCompras(usuario);
+
+            }
+
+            carritoService.save(e);
+
+
+            return "redirect:/tienda";
+        } else {
+            return "";
+        }
+    }
+
+
+
+
+
+    @RequestMapping("/extras/pagar")
+    public String listadoNoticia (Model model,HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
+        List<Carrito> t = carritoService.getAll();
+        double i = 0;
+        if(usuario != null) {
+            for (Carrito nn : t) {
+                if (nn.getCompras().getId() == usuario.getId()) {
+                    i += nn.getCantidad() * nn.getPrecio();
+                }
+            }
+            model.addAttribute("total", i);
+            return "extras/pagar";
+        }else{
+            return "";
+        }
+    }
+
 
     @RequestMapping("extras/extras/delete/{id}")
     public String deleteClase(@PathVariable("id") Integer id) {
