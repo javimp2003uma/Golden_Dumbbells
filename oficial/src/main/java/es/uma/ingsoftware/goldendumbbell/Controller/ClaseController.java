@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,9 +44,11 @@ public class ClaseController {
         List<Clase> clase = claseService.getAll();
         List<Clase> horas = new ArrayList<>();
         List<String> aux = new ArrayList<>();
+        String str1Normalized = Normalizer.normalize(nombreclase, Normalizer.Form.NFD).replaceAll("\\p{M}", "");
 
         for(Clase c: clase) {
-            if(c.getNombre().equalsIgnoreCase(nombreclase)) {
+            String str2Normalized = Normalizer.normalize(c.getNombre(), Normalizer.Form.NFD).replaceAll("\\p{M}", "");
+            if(str2Normalized.equalsIgnoreCase(str1Normalized)) {
                 horas.add(c);
                 aux.add(c.getHora());
             }
