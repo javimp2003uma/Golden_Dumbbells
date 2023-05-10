@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -79,5 +79,111 @@
     </tr>
     </tbody>
 </table>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Noticias</title>
+    <style>
+        body {
+            background-image: url('/img/fondonot.jpg');
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        @font-face {
+    font-family: 'Roman SD';
+    src: url('/img/Gobold Regular.otf') format('truetype');
+}
+
+        h1 {
+            font-family: 'Roman SD', sans-serif;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 70px;
+            margin: 0;
+        }
+
+        #noticias {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .noticia {
+            width: 25%;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-sizing: border-box;
+            border: 1px solid transparent;
+        }
+
+        .noticia:hover {
+            border: 1px solid #ffffff;
+        }
+
+        .titulo {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .cuerpo {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .activo {
+            border: 1px solid #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #noticias .oculto {
+            display: none;
+        }
+
+        #noticias .oculto.activo {
+            display: block;
+        }
+
+        #noticias .oculto .cuerpo {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<h1>Noticias</h1>
+<ul id="noticias">
+    <li class="noticia" th:each="n, i : ${listaNoticias}">
+        <div class="titulo" th:text="${n.titulo}"></div>
+        <div class="oculto">
+            <div th:text="${n.fechadpublicacion}"></div>
+            <div class="cuerpo" th:text="${listaCuerposNoticias[i.index]}"></div>
+        </div>
+    </li>
+</ul>
+<script>
+    const noticias = document.querySelectorAll('.noticia');
+
+    noticias.forEach(noticia => {
+        const titulo = noticia.querySelector('.titulo');
+        const oculto = noticia.querySelector('.oculto');
+
+        titulo.addEventListener('click', () => {
+            noticias.forEach(noticia => {
+                noticia.querySelector('.oculto').classList.remove('activo');
+                noticia.querySelector('.cuerpo').style.display = 'none';
+            });
+            oculto.classList.add('activo');
+            oculto.querySelector('.cuerpo').style.display = 'block';
+        });
+    });
+
+</script>
 </body>
 </html>
