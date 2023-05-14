@@ -275,6 +275,9 @@ input[type="submit"] {
 </div>
 <div class="login-box">
     <p>Inciar Sesion</p>
+
+    <!--<span th:if="${mensajeError != null}" style="color: red;">[[${mensajeError}]]</span> -->
+
     <form action="/index" method="post">
         <div class="user-box">
             <input type="text" id="usuario" name="usuario" required>
@@ -292,6 +295,9 @@ input[type="submit"] {
             <input type="submit" value="Iniciar Sesión">
         </a>
     </form>
+
+    <h5 th:text="${mensajeError}"></h5>
+
     <p>No tienes cuenta?  <a th:href="@{usuario/add}" type="button">Crear cuenta</a>
 </div>
 <br>
