@@ -287,9 +287,6 @@ public class UsuarioController {
     }
 
 
-
-
-
     @RequestMapping("/extras/pagar")
     public String listadoNoticia (Model model,HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
