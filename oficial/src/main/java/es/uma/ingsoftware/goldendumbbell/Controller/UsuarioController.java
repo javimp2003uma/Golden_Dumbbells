@@ -227,7 +227,7 @@ public class UsuarioController {
         if (usuario != null) {
             int i = usuario.getId();
             for(Clase aux : c){
-                if(aux.getId() == id){
+                if(aux.getId().equals(id)){
                     aux.setAsistentes(usu);
                     claseService.save(aux);
                 }
@@ -240,6 +240,31 @@ public class UsuarioController {
         }
     }
 
+    @RequestMapping("/extras/pagar")
+    public String listadoNoticia (Model model,HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
+        List<Carrito> t = carritoService.getAll();
+        List<Carrito> aux = new ArrayList<>();
+        double i = 0;
+
+            if (usuario != null) {
+                for (Carrito nn : t) {
+                    if (nn.getCompras().getId().equals(usuario.getId())) {
+                        aux.add(nn);
+                    }
+                }
+
+
+                for (Carrito c : aux) {
+                    i+=c.getCantidad()*c.getPrecio();
+                }
+                model.addAttribute("total", i);
+                return "extras/pagar";
+            } else {
+                return "";
+            }
+    }
+
     @RequestMapping("/tienda/añadir/{id}")
     public String addCarro(@PathVariable("id") Integer id, Model model,HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
@@ -248,7 +273,7 @@ public class UsuarioController {
         List<Producto> aux = productoService.getAll();
         List<Carrito> mio = carritoService.getAll();
         for(Producto a : aux){
-            if(a.getId() == id){
+            if(a.getId().equals(id)){
                 if(a.getCantidad()> 1){
                     a.setCantidad(a.getCantidad()-1);
                     productoService.save(a);
@@ -287,30 +312,10 @@ public class UsuarioController {
     }
 
 
-    @RequestMapping("/extras/pagar")
-    public String listadoNoticia (Model model,HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
-        List<Carrito> t = carritoService.getAll();
-        double i = 0;
-        if(usuario != null) {
-            for (Carrito nn : t) {
-                if (nn.getCompras().getId() == usuario.getId()) {
-                    i += nn.getCantidad() * nn.getPrecio();
-                }
-            }
-            model.addAttribute("total", i);
-            return "extras/pagar";
-        }else{
-            return "";
-        }
-    }
-
 
     @RequestMapping("extras/extras/delete/{id}")
     public String deleteClase(@PathVariable("id") Integer id) {
     claseService.delete(id);
-
-
         return "redirect:/usuario";
     }
 
