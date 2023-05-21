@@ -54,9 +54,8 @@ public class UsuarioController {
 
 
     @RequestMapping("/clas")
-    public String clas(Model model,HttpSession session) {
+    public String clas(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
-
 
 
         return "extras/clasesdelusuario";
@@ -64,13 +63,13 @@ public class UsuarioController {
 
 
     @PostMapping("index")
-    public String loginUsuario (@RequestParam("usuario") String usuario, @RequestParam("contrasena") String contrasena, HttpSession session,Model model) {
+    public String loginUsuario(@RequestParam("usuario") String usuario, @RequestParam("contrasena") String contrasena, HttpSession session, Model model) {
 
         List<Usuario> usu = usuarioService.getAll();
         Usuario user = null;
 
-        for(Usuario u: usu) {
-            if(u.getNombreUsuario().equalsIgnoreCase(usuario)) {
+        for (Usuario u : usu) {
+            if (u.getNombreUsuario().equalsIgnoreCase(usuario)) {
                 user = u;
             }
         }
@@ -78,29 +77,28 @@ public class UsuarioController {
         if (user == null || !user.getContraseña().equals(contrasena)) {
             // Si las credenciales son incorrectas, se muestra un mensaje de error y se redirige a la página de inicio de sesión.
             String nombreError = "Usuario o contraseña incorrecta";
-            model.addAttribute("mensajeError",nombreError);
+            model.addAttribute("mensajeError", nombreError);
             return "index";
         } else {
             // Si las credenciales son correctas, se establece una sesión y se redirige a la página principal.
-            session.setAttribute("nameforuser",user);
+            session.setAttribute("nameforuser", user);
             model.addAttribute("usuario", user);
-            if(user.getRol().equalsIgnoreCase("Invitado")) {
+            if (user.getRol().equalsIgnoreCase("Invitado")) {
                 return "inicio/invitado";
-            }else if(user.getRol().equalsIgnoreCase("Premium")){
+            } else if (user.getRol().equalsIgnoreCase("Premium")) {
                 return "inicio/premium";
-            }else{
+            } else {
                 return "inicio/index";
             }
         }
     }
 
 
-
     @GetMapping("/inicio")
-    public String verPerfilEnIndex (Model model, HttpSession session) {
+    public String verPerfilEnIndex(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
         if (usuario != null) {
-            model.addAttribute("nombreAuxiliar",usuario.getNombreUsuario());
+            model.addAttribute("nombreAuxiliar", usuario.getNombreUsuario());
             return "inicio/index";
         } else {
             return "";
@@ -108,19 +106,19 @@ public class UsuarioController {
     }
 
     @GetMapping("/extras")
-    public String extras(Model model,HttpSession session) {
+    public String extras(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
         List<Carrito> aux = carritoService.getAll();
         List<Carrito> carrito = new ArrayList<>();
         if (usuario != null) {
             int i = usuario.getId();
-            for(Carrito c : aux){
-                if(i == c.getCompras().getId()){
+            for (Carrito c : aux) {
+                if (i == c.getCompras().getId()) {
                     carrito.add(c);
                 }
             }
 
-            model.addAttribute("carritoAuxiliar",carrito);
+            model.addAttribute("carritoAuxiliar", carrito);
             return "extras/carritodelusuario";
         } else {
             return "inicio/index";
@@ -129,14 +127,13 @@ public class UsuarioController {
     }
 
 
-
     @RequestMapping("/extras/clasedelusuario")
-    public String ver(Model model,HttpSession session) {
+    public String ver(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
         List<Clase> clas = claseService.getAll();
         List<Clase> c = new ArrayList<>();
-        int id =0;
-        if(usuario != null) {
+        int id = 0;
+        if (usuario != null) {
             id = usuario.getId();
             for (Clase h : clas) {
                 for (int i = 0; i < h.getAsistentes().size(); i++) {
@@ -149,18 +146,18 @@ public class UsuarioController {
             model.addAttribute("clasesdelusuario", c);
             return "extras/clasedelusuario";
 
-        }else{
+        } else {
             return "";
         }
     }
 
     @GetMapping("/usuario")
-    public String verPerfil (Model model, HttpSession session) {
+    public String verPerfil(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
         if (usuario != null) {
-            model.addAttribute("usuarioNameUse",usuario);
-            model.addAttribute("nombreAuxiliar",usuario.getNombreUsuario());
-            model.addAttribute("contrasenaAuxiliar",usuario.getContraseña());
+            model.addAttribute("usuarioNameUse", usuario);
+            model.addAttribute("nombreAuxiliar", usuario.getNombreUsuario());
+            model.addAttribute("contrasenaAuxiliar", usuario.getContraseña());
             return "usuario/index";
         } else {
             return "inicio/index";
@@ -176,7 +173,7 @@ public class UsuarioController {
 
     @PostMapping("/usuario/save")
     public String saveUsuario(Usuario e) {
-       usuarioService.save(e);
+        usuarioService.save(e);
         return "index";
     }
 
@@ -186,13 +183,13 @@ public class UsuarioController {
         return "usuario/add";
     }
 
-/*
-    @RequestMapping("/usuario/view/{id}")
-    public String viewUsuario(@PathVariable("id") Integer id, Model model) {
-        model.addAttribute("alimento", usuarioService.getById(id));
-        return "usuario/view";
-    }
-*/
+    /*
+        @RequestMapping("/usuario/view/{id}")
+        public String viewUsuario(@PathVariable("id") Integer id, Model model) {
+            model.addAttribute("alimento", usuarioService.getById(id));
+            return "usuario/view";
+        }
+    */
     @RequestMapping("/usuario/delete/{id}")
     public String deleteUsuario(@PathVariable("id") Integer id) {
         usuarioService.delete(id);
@@ -203,8 +200,8 @@ public class UsuarioController {
     public String deletecarrito(@PathVariable("id") String id) {
         List<Carrito> us = carritoService.getAll();
         int idi = 0;
-        for(Carrito u : us){
-            if(u.getNombreProducto().equalsIgnoreCase(id)){
+        for (Carrito u : us) {
+            if (u.getNombreProducto().equalsIgnoreCase(id)) {
                 idi = u.getId();
             }
         }
@@ -213,12 +210,8 @@ public class UsuarioController {
     }
 
 
-
-
-
-
     @RequestMapping("/añadir/{id}")
-    public String addClase(@PathVariable("id") Integer id, Model model,HttpSession session) {
+    public String addClase(@PathVariable("id") Integer id, Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
 
         List<Clase> c = claseService.getAll();
@@ -226,8 +219,8 @@ public class UsuarioController {
         usu.add(usuario);
         if (usuario != null) {
             int i = usuario.getId();
-            for(Clase aux : c){
-                if(aux.getId().equals(id)){
+            for (Clase aux : c) {
+                if (aux.getId().equals(id)) {
                     aux.setAsistentes(usu);
                     claseService.save(aux);
                 }
@@ -241,28 +234,45 @@ public class UsuarioController {
     }
 
     @RequestMapping("/extras/pagar")
-    public String listadoNoticia (Model model,HttpSession session) {
+    public String listadoNoticia(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("nameforuser");
         List<Carrito> t = carritoService.getAll();
         List<Carrito> aux = new ArrayList<>();
         double i = 0;
 
-            if (usuario != null) {
-                for (Carrito nn : t) {
-                    if (nn.getCompras().getId().equals(usuario.getId())) {
-                        aux.add(nn);
-                    }
+        if (usuario != null) {
+            for (Carrito nn : t) {
+                if (nn.getCompras().getId().equals(usuario.getId())) {
+                    aux.add(nn);
                 }
-
-
-                for (Carrito c : aux) {
-                    i+=c.getCantidad()*c.getPrecio();
-                }
-                model.addAttribute("total", i);
-                return "extras/pagar";
-            } else {
-                return "";
             }
+
+
+            for (Carrito c : aux) {
+                i += c.getCantidad() * c.getPrecio();
+            }
+            model.addAttribute("total", i);
+            return "extras/pagar";
+        } else {
+            return "";
+        }
+    }
+
+    @PostMapping("pay")
+    public String pagar(HttpSession session, Model model) {
+        Usuario usuario = (Usuario) session.getAttribute("nameforuser");
+        List<Carrito> t = carritoService.getAll();
+
+        if (usuario != null) {
+            for(Carrito c : t) {
+                if (usuario.getId().equals(c.getCompras().getId())){
+                    carritoService.delete(c.getId());
+                }
+            }
+            return "extras/carritodelusuario";
+        } else {
+            return "";
+        }
     }
 
     @RequestMapping("/tienda/añadir/{id}")
